@@ -3,10 +3,10 @@ export default function ChangePassword() {
     <div className="max-w-md mx-auto my-10">
       <div className="text-center">
         <h1 className="my-3 text-2xl lg:text-3xl font-semibold text-black">
-          Chnage Password
+          Password
         </h1>
         <p className="text-gray-500 dark:text-gray-400">
-          Give your new password, strong and secure.
+          Enter your new password below.
         </p>
       </div>
 
@@ -54,10 +54,6 @@ export default function ChangePassword() {
               Change Password
             </button>
           </div>
-
-          <p className="text-sm text-center text-gray-400 mt-2">
-            Book Store Inc. © 2024
-          </p>
         </form>
       </div>
     </div>

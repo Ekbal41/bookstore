@@ -77,9 +77,6 @@ export default function SignUpPage() {
             </Link>
             .
           </p>
-          <p className="text-sm text-center text-gray-400 mt-2">
-            Book Store Inc. © 2024
-          </p>
         </form>
       </div>
     </div>

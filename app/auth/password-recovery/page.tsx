@@ -1,12 +1,11 @@
+import Link from "next/link";
+
 export default function PasswordRecovery() {
   return (
     <div className="max-w-md mx-auto my-10">
       <div className="text-center">
-        <h1 className="my-3 text-2xl lg:text-3xl font-semibold ">Password Recovery</h1>
-        <p className="text-gray-500 ">
-          We will send you a link to reset your
-          password.
-        </p>
+        <h1 className="my-3 text-2xl lg:text-3xl font-semibold ">Password</h1>
+        <p className="text-gray-500 ">Enter your email address.</p>
       </div>
 
       <div className="m-7">
@@ -27,16 +26,14 @@ export default function PasswordRecovery() {
             />
           </div>
           <div className="mb-6">
-            <button
+            <Link
+              href="/auth/email-sent-success"
               type="button"
-              className="w-full px-3 py-3 text-white bg-black rounded-md focus:bg-gray-900 focus:outline-none"
+              className="w-full px-3 py-3 text-white bg-black rounded-md focus:bg-gray-900 focus:outline-none text-center"
             >
               Send Password Reset Link
-            </button>
+            </Link>
           </div>
-          <p className="text-sm text-center text-gray-400">
-            Book Store Inc. © 2024
-          </p>
         </form>
       </div>
     </div>
