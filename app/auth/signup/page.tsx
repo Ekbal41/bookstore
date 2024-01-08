@@ -4,9 +4,7 @@ export default function SignUpPage() {
   return (
     <div className="max-w-md mx-auto my-10">
       <div className="text-center">
-        <h1 className="my-3 text-3xl font-semibold text-gray-700 dark:text-gray-200">
-          Sign Up
-        </h1>
+        <h1 className="my-3 text-3xl font-semibold text-black">Sign Up</h1>
         <p className="text-gray-500 dark:text-gray-400">Create a new account</p>
       </div>
 
@@ -73,11 +71,14 @@ export default function SignUpPage() {
             Already have an account yet?{" "}
             <Link
               href="/auth/signin"
-              className="text-blue-500 focus:outline-none focus:underline "
+              className="text-black focus:outline-none focus:underline hover:underline "
             >
-              Sign up
+              Sign in
             </Link>
             .
+          </p>
+          <p className="text-sm text-center text-gray-400 mt-2">
+            Book Store Inc. © 2024
           </p>
         </form>
       </div>
