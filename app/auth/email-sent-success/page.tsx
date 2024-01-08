@@ -19,7 +19,7 @@ export default function RecoveryEmailSent() {
         <p className="text-gray-500 ">
           Please check your email for a link to reset your password.
         </p>
-        <a href="#!" className="text-black focus:outline-none focus:underline hover:underline">Didn't receive an email?</a>
+        <a href="#!" className="text-black focus:outline-none focus:underline hover:underline">Didn'/t receive an email?</a>
         <p className="text-sm text-center text-gray-400 mt-2">
             Book Store Inc. © 2024
           </p>
