@@ -19,7 +19,7 @@ export default function RecoveryEmailSent() {
           Email Sent Successfully
         </h1>
         <p className="text-gray-500 ">
-          Please check your email and follow the instructions.
+          Please check your email and follow the instructions. follow the instructions.
         </p>
       </div>
     </div>
