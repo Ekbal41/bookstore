@@ -5,9 +5,8 @@ import { Bars3Icon, BellIcon, XMarkIcon } from "@heroicons/react/24/outline";
 import Link from "next/link";
 
 const navigation = [
-  { name: "Listing", href: "#", current: false },
-  { name: "About", href: "#", current: false },
-  { name: "Contact", href: "#", current: false },
+  { name: "Categories", href: "#", current: false },
+  { name: "About Us", href: "#", current: false },
 ];
 
 function classNames(...classes: string[]) {
@@ -36,7 +35,7 @@ export default function Navbar() {
               <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
                 <Link
                   href="/"
-                  className="flex flex-shrink-0 items-center font-semibold font-mono"
+                  className="flex flex-shrink-0 items-center font-semibold font-mono text-md"
                 >
                   Nova Store
                 </Link>
@@ -97,10 +96,75 @@ export default function Navbar() {
                       <Menu.Item>
                         {({ active }) => (
                           <Link
+                            href="#!"
+                            className={classNames(
+                              active ? "bg-gray-100" : "",
+                              "block px-4 py-2 text-sm "
+                            )}
+                          >
+                            Profile
+                          </Link>
+                        )}
+                      </Menu.Item>
+                      <Menu.Item>
+                        {({ active }) => (
+                          <Link
+                            href="#!"
+                            className={classNames(
+                              active ? "bg-gray-100" : "",
+                              "block px-4 py-2 text-sm "
+                            )}
+                          >
+                            Dashboard
+                          </Link>
+                        )}
+                      </Menu.Item>
+                      <Menu.Item>
+                        {({ active }) => (
+                          <Link
+                            href="#!"
+                            className={classNames(
+                              active ? "bg-gray-100" : "",
+                              "block px-4 py-2 text-sm "
+                            )}
+                          >
+                            Settings
+                          </Link>
+                        )}
+                      </Menu.Item>
+                      <Menu.Item>
+                        {({ active }) => (
+                          <Link
+                            href="#!"
+                            className={classNames(
+                              active ? "bg-gray-100" : "",
+                              "block px-4 py-2 text-sm  border-t-[1px] border-gray-200"
+                            )}
+                          >
+                            FAQ
+                          </Link>
+                        )}
+                      </Menu.Item>
+                      <Menu.Item>
+                        {({ active }) => (
+                          <Link
+                            href="#!"
+                            className={classNames(
+                              active ? "bg-gray-100" : "",
+                              "block px-4 py-2 text-sm "
+                            )}
+                          >
+                            Help
+                          </Link>
+                        )}
+                      </Menu.Item>
+                      <Menu.Item>
+                        {({ active }) => (
+                          <Link
                             href="/auth/signin"
                             className={classNames(
                               active ? "bg-gray-100" : "",
-                              "block px-4 py-2 text-sm"
+                              "block px-4 py-2 text-sm border-t-[1px] border-gray-200"
                             )}
                           >
                             SIgn In

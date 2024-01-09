@@ -9,9 +9,9 @@ export default function Home() {
           Latest Products
         </h1>
         <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3 lg:gap-8">
-          <ProductCard />
-          <ProductCard />
-          <ProductCard />
+          <ProductCard image="/product-img1.png" />
+          <ProductCard image="/product-img2.jpg" />
+          <ProductCard image="/product-img3.jpg" />
         </div>
       </div>
     </div>
@@ -36,17 +36,28 @@ const Hero = () => {
   );
 };
 
-const ProductCard = () => {
+interface ProductCardProps {
+  image: string;
+}
+
+const ProductCard = ({ image }: ProductCardProps) => {
   return (
     <>
-      <div className=" rounded-md border-2 border-gray-100 bg-white">
-        <Image
-          src="/product-thumb.jpg"
-          className="rounded-t-md w-full "
-          alt="Product Image"
-          height={400}
-          width={400}
-        />
+      <div className=" rounded-md border-[1px] border-gray-200 bg-white hover:shadow-xl transition duration-500 ease-in-out">
+        <div className="border-b-[1px] border-gray-200 h-52 md:h-56 lg:h-60 overflow-hidden rounded-t-md">
+          <Image
+            src={image}
+            className="
+            rounded-t-md w-full h-full object-fit 
+            transition duration-500 ease-in-out
+            hover:scale-105 transform 
+            "
+            alt="Product Image"
+            height={400}
+            width={400}
+            unoptimized={true}
+          />
+        </div>
         <div className="p-3">
           <div className="flex justify-between items-center">
             <h3 className="font-medium sm:text-lg">
