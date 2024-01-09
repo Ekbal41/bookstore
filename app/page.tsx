@@ -14,18 +14,6 @@ export default function Home() {
           <ProductCard />
         </div>
       </div>
-      <div className="mb-8">
-        <h1 className="font-bold text-2xl mb-4 text-center md:text-start">
-          Populer This Week
-        </h1>
-        <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3 lg:gap-8">
-          <ProductCard />
-          <ProductCard />
-          <ProductCard />
-          <ProductCard />
-          <ProductCard />
-        </div>
-      </div>
     </div>
   );
 }
