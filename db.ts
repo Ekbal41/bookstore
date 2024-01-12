@@ -2,10 +2,10 @@ export const products = [
   {
     id: 264758285756,
     price: 800,
-    ratting: 4.2,
+    rating: 4,
     discount: 12,
-    name: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-    desc: "lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec auctor, nisl vitae luctus lacinia, nisl nunc faucibus nisl, quis aliquam nisl nun",
+    name: "Beautifull UI/UX Design with TailwindCSS and NextJS",
+    desc: "This is a full stack development course with react and nodejs. This course is for those who want to learn full stack development with react and nodejs.",
     image: "https://picsum.photos/670/451",
     category: [
       "Chakra Ui",
@@ -21,10 +21,10 @@ export const products = [
   {
     id: 264758364856,
     price: 1200,
-    ratting: 4.5,
+    rating: 3,
     discount: 10,
-    name: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-    desc: "lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec auctor, nisl vitae luctus lacinia, nisl nunc faucibus nisl, quis aliquam nisl nun",
+    name: "Interactive UI/UX Design with Bootstrap5 and React",
+    desc: "This is a full stack development course with react and nodejs. This course is for those who want to learn full stack development with react and nodejs.",
     image: "https://picsum.photos/670/450",
     category: ["Bootstrap5", "react"],
     owner: { id: 2, name: "Rayad Ahmed" },
@@ -33,10 +33,10 @@ export const products = [
   {
     id: 264798174856,
     price: 2600,
-    ratting: 5,
+    rating: 5,
     discount: 4,
-    name: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-    desc: "lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec auctor, nisl vitae luctus lacinia, nisl nunc faucibus nisl, quis aliquam nisl nun",
+    name: "Full Stack Development with React and NodeJS",
+    desc: "This is a full stack development course with react and nodejs. This course is for those who want to learn full stack development with react and nodejs.",
     image: "https://picsum.photos/670/452",
     category: ["React", "TailwindCSS", "NextJS", "UI/UX"],
     owner: { id: 3, name: "Asif Ekbal" },
@@ -52,7 +52,7 @@ interface Owner {
 export interface Product {
   id: number;
   price: number;
-  ratting: number;
+  rating: number;
   discount: number;
   name: string;
   desc: string;

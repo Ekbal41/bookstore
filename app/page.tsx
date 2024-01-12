@@ -1,7 +1,8 @@
 import Image from "next/image";
-import { ShoppingCartIcon, StarIcon } from "@heroicons/react/24/outline";
+import { ShoppingCartIcon } from "@heroicons/react/24/outline";
 import { products, type Product } from "@/db";
 import Link from "next/link";
+import StarRating from "@/components/StartRating";
 export default function Home() {
   return (
     <div className="my-2 md:my-8">
@@ -57,13 +58,7 @@ const ProductCard = (product: Product) => {
               <ShoppingCartIcon className="h-5 w-5 me-1 text-gray-500 inline-block" />
               {product.purchases} Purchases
             </h3>
-            <div>
-              <StarIcon className="h-5 w-5 text-yellow-400 inline-block" />
-              <StarIcon className="h-5 w-5 text-yellow-400 inline-block" />
-              <StarIcon className="h-5 w-5 text-yellow-400 inline-block" />
-              <StarIcon className="h-5 w-5 text-yellow-400 inline-block" />
-              <StarIcon className="h-5 w-5 text-yellow-400 inline-block" />
-            </div>
+            <StarRating rating={product.rating} />
           </div>
         </div>
       </div>
