@@ -43,8 +43,8 @@ export default function ShoppingCart() {
         </div>
         <div>
           {/* empty cart */}
-          <div className="flex justify-center items-center h-screen flex-col gap-2  pb-10">
-            <ShoppingBagIcon className="h-14 w-14" aria-hidden="true" />
+          <div className="flex justify-center items-center h-screen flex-col gap-2  pb-20">
+            <ShoppingBagIcon className="h-14 w-14 text-gray-400" aria-hidden="true" />
             <p className="text-xl font-semibold">Your cart is empty!</p>
             <p className="text-sm text-gray-500">
               Add something to make it happy :)
