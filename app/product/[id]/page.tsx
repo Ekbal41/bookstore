@@ -6,8 +6,8 @@ import StarRating from "@/components/StartRating";
 export default function ProductDetails({ params }: { params: { id: string } }) {
   const product = getSingleProduct(Number(params.id));
   return (
-    <div className="pt-2 pb-8 md:py-12">
-      <ol className="flex items-center gap-1 text-sm text-gray-600">
+    <div className="pb-8 md:py-4 px-2 md:px-0">
+      <ol className="flex items-center gap-1 text-sm text-gray-600 py-3 md:py-0">
         <li>
           <Link href="/" className="block transition hover:text-gray-700">
             <span className="sr-only"> Home </span>
@@ -31,7 +31,7 @@ export default function ProductDetails({ params }: { params: { id: string } }) {
           ID-{product.id}
         </li>
       </ol>
-      <div className="grid md:grid-cols-2 pt-2  md:py-4 gap-1 md:gap-4">
+      <div className="grid md:grid-cols-2  md:py-4 gap-3 md:gap-4">
         <div>
           <Image
             src={product.image}
@@ -48,9 +48,6 @@ export default function ProductDetails({ params }: { params: { id: string } }) {
             <h1 className="font-bold text-2xl lg:text-3xl text-start">
               {product.name}
             </h1>
-            <p>
-              <span className="text-gray-500">By</span> {product.owner.name}
-            </p>
             <div className="flex gap-2 items-center">
               <StarRating rating={product.rating} />
               <div>
@@ -81,6 +78,9 @@ export default function ProductDetails({ params }: { params: { id: string } }) {
             </div>
           </div>
           <p className="text-gray-700">{product.desc}</p>
+          <p>
+            <span className="text-gray-500">Sold by :</span> {product.owner.name}
+          </p>
           <div className="flex gap-2">
             <input
               type="number"
