@@ -7,7 +7,7 @@ export default function MainPage() {
             Good Morning, Asif Ekbal 👋
           </h1>
           <div className="text-sm text-gray-500">
-            <p>Here's what's happening with your products today.</p>
+            <p>Here&apos;s what&apos;s happening with your products today.</p>
           </div>
         </div>
         <div>
