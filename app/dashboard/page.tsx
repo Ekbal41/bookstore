@@ -1,5 +1,6 @@
 "use client";
 import MainPage from "@/components/dashboard/MainPage";
+import Products from "@/components/dashboard/Products";
 import { Tab } from "@headlessui/react";
 import {
   BanknotesIcon,
@@ -120,16 +121,8 @@ export default function Dashboard() {
                 <Tab.Panel>
                   <MainPage />
                 </Tab.Panel>
-                <Tab.Panel>
-                  <div>
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                    Repudiandae nostrum consectetur omnis corporis officiis vero
-                    perspiciatis pariatur. Commodi culpa voluptatum distinctio
-                    exercitationem fugiat corrupti recusandae laborum ut minus
-                    nulla laboriosam totam eaque necessitatibus, iure dolores
-                    nostrum alias aut quasi! Corporis nesciunt eum, quae
-                    explicabo est minima totam dolores ipsam at.
-                  </div>
+                <Tab.Panel className={"outline-none"}>
+                  <Products />
                 </Tab.Panel>{" "}
                 <Tab.Panel>
                   <div>
