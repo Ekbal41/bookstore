@@ -21,11 +21,11 @@ export default function Dashboard() {
                   "flex flex-wrap md:flex-col md:flex-nowrap gap-1 border-b-[1px] pb-4 md:border-b-0  md:col-span-1 md:border-r-[1px] md:pr-4"
                 }
               >
-                <div className="md:flex md:flex-col gap-1">
-                  <h1 className="mb-2  md:text-lg font-semibold md:ml-3">
+                <div className="flex  flex-col gap-1 ">
+                  <h1 className="mb-2  md:text-lg font-semibold ml-3">
                     Dashboard
                   </h1>
-                  <Tab className={"outline-0"}>
+                  <Tab as="div" className={"outline-0"}>
                     {({ selected }) => (
                       <button
                         className={
@@ -42,7 +42,7 @@ export default function Dashboard() {
                       </button>
                     )}
                   </Tab>
-                  <Tab className={"outline-0"}>
+                  <Tab as="div" className={"outline-0"}>
                     {({ selected }) => (
                       <button
                         className={
@@ -59,7 +59,7 @@ export default function Dashboard() {
                       </button>
                     )}
                   </Tab>
-                  <Tab className={"outline-0"}>
+                  <Tab as="div" className={"outline-0"}>
                     {({ selected }) => (
                       <button
                         className={
@@ -77,11 +77,11 @@ export default function Dashboard() {
                     )}
                   </Tab>
                 </div>
-                <div className="md:flex md:flex-col gap-1">
-                  <h1 className="mt-2 mb-2  md:mt-6 md:text-lg font-semibold md:ml-3">
+                <div className="flex flex-col gap-1 ">
+                  <h1 className=" mb-2  md:mt-6 md:text-lg font-semibold ml-3">
                     Settings
                   </h1>
-                  <Tab className={"outline-0"}>
+                  <Tab as="div" className={"outline-0"}>
                     {({ selected }) => (
                       <button
                         className={
@@ -98,7 +98,7 @@ export default function Dashboard() {
                       </button>
                     )}
                   </Tab>
-                  <Tab className={"outline-0"}>
+                  <Tab as="div" className={"outline-0"}>
                     {({ selected }) => (
                       <button
                         className={
@@ -117,13 +117,13 @@ export default function Dashboard() {
                   </Tab>
                 </div>
               </Tab.List>
-              <Tab.Panels className={"md:col-span-4 mt-4 md:mt-0 md:px-4"}>
+              <Tab.Panels className={"md:col-span-4 mt-4 md:mt-0 md:px-4 "}>
                 <Tab.Panel>
                   <MainPage />
                 </Tab.Panel>
                 <Tab.Panel className={"outline-none"}>
                   <Products />
-                </Tab.Panel>{" "}
+                </Tab.Panel>
                 <Tab.Panel>
                   <div>
                     Lorem ipsum dolor sit amet consectetur, adipisicing elit.
