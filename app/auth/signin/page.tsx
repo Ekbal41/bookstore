@@ -5,7 +5,7 @@ export default function SignInPage() {
     <div className="max-w-md mx-auto my-10">
       <div className="text-center">
         <h1 className="my-3 text-3xl font-semibold ">Sign In</h1>
-        <p className="text-gray-500 ">Sign in to access your account</p>
+        <p className="text-gray-600 ">Sign in to access your account</p>
       </div>
 
       <div className="m-7">
@@ -35,7 +35,7 @@ export default function SignInPage() {
               </label>
               <Link
                 href="/auth/password-recovery"
-                className="text-sm text-gray-400 focus:outline-none focus:text-black hover:text-black focus:underline"
+                className="text-sm text-gray-600 hover:underline focus:outline-none focus:text-black hover:text-black focus:underline"
               >
                 Forgot password?
               </Link>
@@ -56,7 +56,7 @@ export default function SignInPage() {
               Sign In
             </button>
           </div>
-          <p className="text-sm text-center text-gray-400">
+          <p className="text-sm text-center text-gray-600">
             Don&#x27;t have an account yet?{" "}
             <Link
               href="/auth/signup"

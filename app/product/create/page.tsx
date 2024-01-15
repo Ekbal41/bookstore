@@ -93,7 +93,7 @@ const StepOne = () => {
             <h1 className="md:text-xl font-semibold text-gray-900 capitalize">
               title
             </h1>
-            <p className="text-sm text-gray-500">
+            <p className="text-sm text-gray-600">
               Give your product a title that will catch the attention of your
               customers.
             </p>
@@ -110,7 +110,7 @@ const StepOne = () => {
             <h1 className="md:text-xl font-semibold text-gray-900 capitalize">
               description
             </h1>
-            <p className="text-sm text-gray-500">
+            <p className="text-sm text-gray-600">
               Write a short description for your product. This will appear on
               the product page.
             </p>
@@ -128,14 +128,14 @@ const StepOne = () => {
             <h1 className="md:text-xl font-semibold text-gray-900 capitalize">
               Categories
             </h1>
-            <p className="text-sm text-gray-500">
+            <p className="text-sm text-gray-600">
               Select the category that best fits your product. Separete multiple
               categories with a comma.
             </p>
-            <p className="text-sm text-gray-500">
+            <p className="text-sm text-gray-600">
               Example: Electronics, Laptops
             </p>
-            <p className="text-sm text-gray-500">
+            <p className="text-sm text-gray-600">
               Minimum 1 and maximum 5 categories are allowed.
             </p>
           </div>
