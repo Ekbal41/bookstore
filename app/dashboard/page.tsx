@@ -118,7 +118,7 @@ export default function Dashboard() {
                 </div>
               </Tab.List>
               <Tab.Panels className={"md:col-span-4 mt-4 md:mt-0 md:px-4 "}>
-                <Tab.Panel>
+                <Tab.Panel className={"outline-none"}>
                   <MainPage />
                 </Tab.Panel>
                 <Tab.Panel className={"outline-none"}>

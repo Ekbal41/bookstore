@@ -1,3 +1,5 @@
+import { PlusIcon } from "@heroicons/react/24/outline";
+
 export default function MainPage() {
   return (
     <>
@@ -10,15 +12,19 @@ export default function MainPage() {
             <p>Here&apos;s what&apos;s your overall business status.</p>
           </div>
         </div>
-        <div>
-          <ProfitCard />
+        <div className="flex flex-col gap-2">
+          <LastSell />
+          <LastSell />
+          <LastSell />
+          <LastSell />
+          <LastSell />
         </div>
       </div>
     </>
   );
 }
 
-const ProfitCard = () => {
+const LastSell = () => {
   return (
     <>
       <article className="flex items-end justify-between rounded-lg border border-gray-100 bg-white p-6">
@@ -41,29 +47,21 @@ const ProfitCard = () => {
           </span>
 
           <div>
-            <p className="text-sm text-gray-500">Total Profit</p>
+            <p className="text-sm text-gray-500">Selling Price</p>
 
-            <p className="text-2xl font-medium text-gray-900">৳240.94</p>
+            <p className="text-2xl font-medium text-gray-900">240 TK</p>
           </div>
         </div>
-
-        <div className="inline-flex gap-2 rounded bg-red-100 p-1 text-red-600">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className="h-4 w-4"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              d="M13 17h8m0 0V9m0 8l-8-8-4 4-6-6"
-            />
-          </svg>
-
-          <span className="text-xs font-medium"> 67.81% </span>
+        <div className="flex flex-col-reverse gap-2 justify-end items-end">
+          <div className="inline-flex gap-2 rounded  p-1 ">
+            <a href="#!" className="text-xs font-medium hover:underline">
+             PID-9836534523{" "}
+            </a>
+          </div>
+          <div className="inline-flex w-fit gap-2 rounded bg-green-100 p-1 pr-2 text-green-600">
+            <PlusIcon className="h-4 w-4" />
+            <span className="text-xs font-medium"> 67 TK </span>
+          </div>
         </div>
       </article>
     </>
