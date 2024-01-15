@@ -2,10 +2,10 @@ import Link from "next/link";
 
 export default function SignUpPage() {
   return (
-    <div className="max-w-md mx-auto my-10">
+    <div className="max-w-md mx-auto mt-10">
       <div className="text-center">
         <h1 className="my-3 text-3xl font-semibold text-black">Sign Up</h1>
-        <p className="text-gray-500 dark:text-gray-400">Create a new account</p>
+        <p className="text-gray-500 dark:text-gray-600">Create a new account</p>
       </div>
 
       <div className="m-7">
@@ -67,16 +67,27 @@ export default function SignUpPage() {
               Sign Up
             </button>
           </div>
-          <p className="text-sm text-center text-gray-400">
+
+          <p className="text-sm text-center text-gray-600">
             Already have an account yet?{" "}
             <Link
               href="/auth/signin"
-              className="text-black focus:outline-none focus:underline hover:underline "
+              className="focus:outline-none focus:underline underline underline-offset-4 hover:text-black"
             >
               Sign in
             </Link>
             .
           </p>
+          {/* <p className="text-sm text-center text-gray-600 px-4">
+            By clicking continue, you agree to our{" "}
+            <span className="underline underline-offset-4 hover:text-black cursor-pointer">
+              Terms of Service
+            </span>
+            {" "} and{" "}
+            <span className="underline underline-offset-4 hover:text-black cursor-pointer">
+              Privacy Policy.
+            </span>
+          </p> */}
         </form>
       </div>
     </div>
