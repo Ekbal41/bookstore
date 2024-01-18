@@ -34,11 +34,9 @@ export const verifyJWT = async <T>(token: string) => {
 export async function isAuthenticatedUser() {
   const token = cookies()?.get("token");
   if (token) {
-    const { sub } = (await verifyJWT<{ sub: string }>(token.value)) as {
-      sub: string;
-    };
-    if (sub) {
-      return sub;
+    const p = await verifyJWT<{ sub: string }>(token.value);
+    if (p?.sub) {
+      return p?.sub;
     }
     return null;
   }
