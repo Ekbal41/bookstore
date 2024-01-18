@@ -1,5 +1,5 @@
 "use client";
-import { loginUser } from "@/app/actions";
+import { getUser, loginUser } from "@/app/actions";
 import { ArrowPathIcon } from "@heroicons/react/24/outline";
 import Link from "next/link";
 import { useRouter } from "next/navigation";

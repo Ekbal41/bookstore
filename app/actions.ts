@@ -45,6 +45,24 @@ export async function isAuthenticatedUser() {
   }
   return null;
 }
+
+export async function getUser() {
+  const userId = await isAuthenticatedUser();
+  
+  if (userId) {
+    const user = await DB.user.findUnique({
+      where: {
+        id: parseInt(userId),
+      },
+    });
+    if (user) {
+      return user;
+    }
+    return null;
+  }
+  return null;
+}
+
 export async function logOut() {
   cookies().set("token", "", { maxAge: 0 });
 }

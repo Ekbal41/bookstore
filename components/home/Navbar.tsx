@@ -1,12 +1,12 @@
 "use client";
-import { Fragment } from "react";
+import { Fragment, useEffect, useState } from "react";
 import { Disclosure, Menu, Transition } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import Link from "next/link";
 import ShoppingCart from "@/components/cart/ShoppingCart";
-import { logOut } from "@/app/actions";
+import { getUser, logOut } from "@/app/actions";
 import { toast } from "react-toastify";
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 
 const navigation = [
   { name: "Categories", href: "#", current: false },
@@ -19,11 +19,23 @@ function classNames(...classes: string[]) {
 
 export default function Navbar() {
   const navigate = useRouter();
+  const path = usePathname();
+  const [user, setUser] = useState<any>(null);
   const handleLogout = async () => {
     await logOut();
+    setUser(null);
     toast.success("Logged Out Successfully");
     navigate.push("/");
   };
+  console.log(location);
+
+  useEffect(() => {
+    const run = async () => {
+      const usr = await getUser();
+      setUser(usr);
+    };
+    !user && run();
+  }, [path]);
 
   return (
     <Disclosure as="nav" className="bg-white border-b-[1px]">
@@ -93,19 +105,60 @@ export default function Navbar() {
                     leaveTo="transform opacity-0 scale-95"
                   >
                     <Menu.Items className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
-                      <Menu.Item>
-                        {({ active }) => (
-                          <Link
-                            href="/dashboard"
-                            className={classNames(
-                              active ? "bg-gray-100" : "",
-                              "block px-4 py-2 text-sm "
+                      {user && (
+                        <>
+                          <Menu.Item>
+                            {({ active }) => (
+                              <div className="block px-4 py-2 font-semibold text-sm cursor-pointer ">
+                                @{user.email.split("@")[0]}
+                              </div>
                             )}
-                          >
-                            Dashboard
-                          </Link>
-                        )}
-                      </Menu.Item>
+                          </Menu.Item>
+                          <Menu.Item>
+                            {({ active }) => (
+                              <Link
+                                href="/dashboard"
+                                className={classNames(
+                                  active ? "bg-gray-100" : "",
+                                  "block px-4 py-2 text-sm "
+                                )}
+                              >
+                                Dashboard
+                              </Link>
+                            )}
+                          </Menu.Item>
+                        </>
+                      )}
+                      {!user && (
+                        <>
+                          <Menu.Item>
+                            {({ active }) => (
+                              <Link
+                                href="/auth/signin"
+                                className={classNames(
+                                  active ? "bg-gray-100" : "",
+                                  "block px-4 py-2 text-sm border-t-[1px] border-gray-200"
+                                )}
+                              >
+                                Sign In
+                              </Link>
+                            )}
+                          </Menu.Item>
+                          <Menu.Item>
+                            {({ active }) => (
+                              <Link
+                                href="/auth/signup"
+                                className={classNames(
+                                  active ? "bg-gray-100" : "",
+                                  "block px-4 py-2 text-sm "
+                                )}
+                              >
+                                Create Account
+                              </Link>
+                            )}
+                          </Menu.Item>
+                        </>
+                      )}
                       <Menu.Item>
                         {({ active }) => (
                           <Link
@@ -132,42 +185,19 @@ export default function Navbar() {
                           </Link>
                         )}
                       </Menu.Item>
-                      <Menu.Item>
-                        {({ active }) => (
-                          <Link
-                            href="/auth/signin"
-                            className={classNames(
-                              active ? "bg-gray-100" : "",
-                              "block px-4 py-2 text-sm border-t-[1px] border-gray-200"
-                            )}
-                          >
-                            SIgn In
-                          </Link>
-                        )}
-                      </Menu.Item>
-                      <Menu.Item>
-                        {({ active }) => (
-                          <Link
-                            href="/auth/signup"
-                            className={classNames(
-                              active ? "bg-gray-100" : "",
-                              "block px-4 py-2 text-sm "
-                            )}
-                          >
-                            SIgn Up
-                          </Link>
-                        )}
-                      </Menu.Item>
-                      <Menu.Item>
-                        {({ active }) => (
-                          <div
-                            className="block px-4 py-2 text-sm cursor-pointer"
-                            onClick={handleLogout}
-                          >
-                            Log Out
-                          </div>
-                        )}
-                      </Menu.Item>
+
+                      {user && (
+                        <Menu.Item>
+                          {({ active }) => (
+                            <div
+                              className="block px-4 py-2 text-sm cursor-pointer border-t-[1px] border-gray-200"
+                              onClick={handleLogout}
+                            >
+                              Log Out
+                            </div>
+                          )}
+                        </Menu.Item>
+                      )}
                     </Menu.Items>
                   </Transition>
                 </Menu>
