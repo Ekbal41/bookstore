@@ -2,6 +2,7 @@
 import DB from "@/db/client";
 import { SignJWT, jwtVerify } from "jose";
 import { cookies } from "next/headers";
+import { redirect } from "next/navigation";
 
 export const signJWT = async (
   payload: { sub: string },
@@ -20,7 +21,7 @@ export const signJWT = async (
     throw error;
   }
 };
-export const verifyJWT = async <T>(token: string): Promise<T> => {
+export const verifyJWT = async <T>(token: string) => {
   try {
     return (
       await jwtVerify(
@@ -30,8 +31,7 @@ export const verifyJWT = async <T>(token: string): Promise<T> => {
     ).payload as T;
   } catch (error) {
     console.log(error);
-    // cookies().set("token", "", { maxAge: 0 });
-    throw new Error("Your token has expired.");
+    redirect("/signin");
   }
 };
 export async function isAuthenticatedUser() {
@@ -48,7 +48,7 @@ export async function isAuthenticatedUser() {
 
 export async function getUser() {
   const userId = await isAuthenticatedUser();
-  
+
   if (userId) {
     const user = await DB.user.findUnique({
       where: {
