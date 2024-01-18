@@ -6,25 +6,38 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "migrate:reset": "npx prisma migrate reset",
+    "migrate:dev": "npx prisma migrate dev",
+    "migrate:deploy": "npx prisma migrate deploy",
+    "generate": "npx prisma generate",
+    "studio": "npx prisma studio"
   },
   "dependencies": {
     "@headlessui/react": "^1.7.17",
     "@heroicons/react": "^2.1.1",
+    "@prisma/client": "^5.8.1",
+    "bcryptjs": "^2.4.3",
+    "jose": "^5.2.0",
     "next": "14.0.4",
+    "next-auth": "^4.24.5",
     "react": "^18",
     "react-dom": "^18",
-    "react-modern-drawer": "^1.2.2"
+    "react-modern-drawer": "^1.2.2",
+    "react-toastify": "^10.0.3",
+    "ts-node": "^10.9.2"
   },
   "devDependencies": {
-    "@types/node": "^20",
+    "@types/bcryptjs": "^2.4.6",
+    "@types/node": "^20.11.5",
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "autoprefixer": "^10.0.1",
     "eslint": "^8",
     "eslint-config-next": "14.0.4",
     "postcss": "^8",
+    "prisma": "^5.8.1",
     "tailwindcss": "^3.3.0",
-    "typescript": "^5"
+    "typescript": "^5.3.3"
   }
 }

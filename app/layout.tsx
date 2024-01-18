@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import "react-modern-drawer/dist/index.css";
+import "react-toastify/dist/ReactToastify.css";
+import { ToastContainer } from "react-toastify";
 import Navbar from "@/components/home/Navbar";
 import Footer from "@/components/home/Footer";
 const inter = Inter({ subsets: ["latin"] });
@@ -21,6 +23,7 @@ export default function RootLayout({
       <body className={inter.className}>
         <Navbar />
         <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">{children}</div>
+        <ToastContainer />
         <Footer />
       </body>
     </html>

@@ -1,13 +1,12 @@
 "use client";
 import { Fragment } from "react";
 import { Disclosure, Menu, Transition } from "@headlessui/react";
-import {
-  Bars3Icon,
-  XMarkIcon,
-  ShoppingBagIcon,
-} from "@heroicons/react/24/outline";
+import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import Link from "next/link";
 import ShoppingCart from "@/components/cart/ShoppingCart";
+import { logOut } from "@/app/actions";
+import { toast } from "react-toastify";
+import { useRouter } from "next/navigation";
 
 const navigation = [
   { name: "Categories", href: "#", current: false },
@@ -19,6 +18,13 @@ function classNames(...classes: string[]) {
 }
 
 export default function Navbar() {
+  const navigate = useRouter();
+  const handleLogout = async () => {
+    await logOut();
+    toast.success("Logged Out Successfully");
+    navigate.push("/");
+  };
+
   return (
     <Disclosure as="nav" className="bg-white border-b-[1px]">
       {({ open }) => (
@@ -47,7 +53,7 @@ export default function Navbar() {
                 <div className="hidden sm:ml-6 sm:block">
                   <div className="flex space-x-4">
                     {navigation.map((item) => (
-                      <a
+                      <Link
                         key={item.name}
                         href={item.href}
                         className={classNames(
@@ -57,7 +63,7 @@ export default function Navbar() {
                         aria-current={item.current ? "page" : undefined}
                       >
                         {item.name}
-                      </a>
+                      </Link>
                     ))}
                   </div>
                 </div>
@@ -152,6 +158,16 @@ export default function Navbar() {
                           </Link>
                         )}
                       </Menu.Item>
+                      <Menu.Item>
+                        {({ active }) => (
+                          <div
+                            className="block px-4 py-2 text-sm cursor-pointer"
+                            onClick={handleLogout}
+                          >
+                            Log Out
+                          </div>
+                        )}
+                      </Menu.Item>
                     </Menu.Items>
                   </Transition>
                 </Menu>
@@ -161,18 +177,18 @@ export default function Navbar() {
 
           <Disclosure.Panel className="sm:hidden">
             <div className="space-y-1 px-2 pb-3 pt-2">
-              {navigation.map((item) => (
-                <Disclosure.Button
-                  key={item.name}
-                  as="a"
-                  href={item.href}
-                  className={classNames(
-                    item.current ? "bg-gray-100" : " hover:bg-gray-100",
-                    "block rounded-md px-3 py-2 text-sm font-medium"
-                  )}
-                  aria-current={item.current ? "page" : undefined}
-                >
-                  {item.name}
+              {navigation.map((item, index) => (
+                <Disclosure.Button key={index}>
+                  <Link
+                    href={item.href}
+                    className={classNames(
+                      item.current ? "bg-gray-100" : " hover:bg-gray-100",
+                      "block rounded-md px-3 py-2 text-sm font-medium"
+                    )}
+                    aria-current={item.current ? "page" : undefined}
+                  >
+                    {item.name}
+                  </Link>
                 </Disclosure.Button>
               ))}
             </div>
