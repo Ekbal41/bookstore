@@ -2,8 +2,6 @@
 import DB from "@/db/client";
 import { SignJWT, jwtVerify } from "jose";
 import { cookies } from "next/headers";
-import { redirect } from "next/navigation";
-
 export const signJWT = async (
   payload: { sub: string },
   options: { exp: string }
@@ -31,7 +29,6 @@ export const verifyJWT = async <T>(token: string) => {
     ).payload as T;
   } catch (error) {
     console.log(error);
-    redirect("/signin");
   }
 };
 export async function isAuthenticatedUser() {
