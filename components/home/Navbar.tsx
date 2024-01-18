@@ -27,8 +27,6 @@ export default function Navbar() {
     toast.success("Logged Out Successfully");
     navigate.push("/");
   };
-  console.log(location);
-
   useEffect(() => {
     const run = async () => {
       const usr = await getUser();
