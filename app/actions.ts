@@ -35,7 +35,6 @@ export async function isAuthenticatedUser() {
   const token = cookies()?.get("token");
   if (token) {
     const p = await verifyJWT(token.value);
-    console.log("p", p);
     if (p?.sub) {
       return p?.sub;
     }

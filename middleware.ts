@@ -5,9 +5,8 @@ const protectedRoutes = ["/dashboard"];
 
 export default async function middleware(req: NextRequest) {
   const isAuthUser = await isAuthenticatedUser();
-  console.log("huerid", isAuthUser);
-  // if (!isAuthUser && protectedRoutes.includes(req.nextUrl.pathname)) {
-  //   const absoluteURL = new URL("/", req.nextUrl.origin);
-  //   return NextResponse.redirect(absoluteURL.toString());
-  // }
+  if (!isAuthUser && protectedRoutes.includes(req.nextUrl.pathname)) {
+    const absoluteURL = new URL("/", req.nextUrl.origin);
+    return NextResponse.redirect(absoluteURL.toString());
+  }
 }
