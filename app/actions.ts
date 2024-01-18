@@ -19,14 +19,14 @@ export const signJWT = async (
     throw error;
   }
 };
-export const verifyJWT = async <T>(token: string) => {
+export const verifyJWT = async (token: string) => {
   try {
     return (
       await jwtVerify(
         token,
         new TextEncoder().encode(process.env.JWT_SECRET_KEY)
       )
-    ).payload as T;
+    ).payload;
   } catch (error) {
     console.log(error);
   }
@@ -34,7 +34,7 @@ export const verifyJWT = async <T>(token: string) => {
 export async function isAuthenticatedUser() {
   const token = cookies()?.get("token");
   if (token) {
-    const p = await verifyJWT<{ sub: string }>(token.value);
+    const p = await verifyJWT(token.value);
     if (p?.sub) {
       return p?.sub;
     }
