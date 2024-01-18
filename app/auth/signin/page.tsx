@@ -1,12 +1,16 @@
 "use client";
 import { loginUser } from "@/app/actions";
+import { ArrowPathIcon } from "@heroicons/react/24/outline";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import { useState } from "react";
 import { toast } from "react-toastify";
 
 export default function SignInPage() {
   const navigate = useRouter();
+  const [loading, setLoading] = useState(false);
   const handleSignIn = async (e: React.FormEvent<HTMLFormElement>) => {
+    setLoading(true);
     e.preventDefault();
     const formData = new FormData(e.currentTarget);
     const email = formData.get("email");
@@ -14,9 +18,11 @@ export default function SignInPage() {
 
     const res = await loginUser(email as string, password as string);
     if (res.status === true) {
+      setLoading(false);
       toast.success(res.message);
       navigate.push("/dashboard");
     } else {
+      setLoading(false);
       toast.error(res.message);
     }
   };
@@ -79,7 +85,14 @@ export default function SignInPage() {
               type="submit"
               className="w-full px-3 py-3 text-white bg-black rounded-md focus:bg-gray-900 focus:outline-none"
             >
-              Sign In
+              {loading ? (
+                <span>
+                  <ArrowPathIcon className="w-5 h-5 inline-block mr-2 mb-[3px] animate-spin" />
+                  Processing...
+                </span>
+              ) : (
+                "Sign In"
+              )}
             </button>
           </div>
 

@@ -1,12 +1,17 @@
 "use client";
 import { createUser } from "@/app/actions";
+import { ArrowPathIcon } from "@heroicons/react/24/outline";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import { useState } from "react";
 import { toast } from "react-toastify";
 export default function SignUpPage() {
   const navigate = useRouter();
+  const [loading, setLoading] = useState(false);
+
   const handleSignUp = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    setLoading(true);
     const formData = new FormData(e.currentTarget);
     const email = formData.get("email");
     const password = formData.get("password");
@@ -18,8 +23,10 @@ export default function SignUpPage() {
     const res = await createUser(email as string, password as string);
     if (res.status === true) {
       toast.success(res.message);
+      setLoading(false);
       navigate.push("/auth/signin");
     } else {
+      setLoading(false);
       toast.error(res.message);
     }
   };
@@ -97,7 +104,14 @@ export default function SignUpPage() {
               type="submit"
               className="w-full px-3 py-3 text-white bg-black rounded-md focus:bg-gray-900 focus:outline-none"
             >
-              Sign Up
+              {loading ? (
+                <span>
+                  <ArrowPathIcon className="w-5 h-5 inline-block mr-2 mb-[3px] animate-spin" />
+                  Processing...
+                </span>
+              ) : (
+                "Sign Up"
+              )}
             </button>
           </div>
 
