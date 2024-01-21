@@ -13,7 +13,7 @@ import {
 export default function Dashboard() {
   return (
     <>
-      <div className="pb-8 md:py-4 px-2 md:px-0">
+      <div className="pb-8 px-2 md:px-0">
         <div>
           <Tab.Group>
             <div className="md:grid md:grid-cols-5 mt-4">

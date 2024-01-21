@@ -28,7 +28,7 @@ export default function SignInPage() {
   };
 
   return (
-    <div className="max-w-md mx-auto mt-10">
+    <div className="max-w-md mx-auto pt-4">
       <div className="text-center">
         <h1 className="my-3 text-3xl font-semibold ">Sign In</h1>
         <p className="text-gray-600 ">Sign in to access your account</p>

@@ -9,8 +9,10 @@ import { toast } from "react-toastify";
 import { usePathname, useRouter } from "next/navigation";
 
 const navigation = [
-  { name: "Categories", href: "#", current: false },
-  { name: "About Us", href: "#", current: false },
+  {
+    name: "About Us",
+    href: "/about",
+  },
 ];
 
 function classNames(...classes: string[]) {
@@ -36,7 +38,10 @@ export default function Navbar() {
   }, [path]);
 
   return (
-    <Disclosure as="nav" className="bg-white border-b-[1px]">
+    <Disclosure
+      as="nav"
+      className="bg-white border-b-[1px] fixed w-full top-0 z-50 bg-opacity-80 backdrop-blur-md"
+    >
       {({ open }) => (
         <>
           <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
@@ -67,10 +72,12 @@ export default function Navbar() {
                         key={item.name}
                         href={item.href}
                         className={classNames(
-                          item.current ? "bg-gray-100 " : " hover:bg-gray-100",
+                          path === item.href
+                            ? "bg-gray-100 "
+                            : " hover:bg-gray-100",
                           "rounded-md px-3 py-2 text-sm font-medium"
                         )}
-                        aria-current={item.current ? "page" : undefined}
+                        aria-current={path === item.href ? "page" : undefined}
                       >
                         {item.name}
                       </Link>
@@ -135,7 +142,7 @@ export default function Navbar() {
                                 href="/auth/signin"
                                 className={classNames(
                                   active ? "bg-gray-100" : "",
-                                  "block px-4 py-2 text-sm border-t-[1px] border-gray-200"
+                                  "block px-4 py-2 text-sm"
                                 )}
                               >
                                 Sign In
@@ -210,10 +217,10 @@ export default function Navbar() {
                   <Link
                     href={item.href}
                     className={classNames(
-                      item.current ? "bg-gray-100" : " hover:bg-gray-100",
+                      path === item.href ? "bg-gray-100" : " hover:bg-gray-100",
                       "block rounded-md px-3 py-2 text-sm font-medium"
                     )}
-                    aria-current={item.current ? "page" : undefined}
+                    aria-current={path === item.href ? "page" : undefined}
                   >
                     {item.name}
                   </Link>

@@ -46,6 +46,15 @@ export default function Products() {
               <ProductTableRow />
               <ProductTableRow />
               <ProductTableRow />
+              <ProductTableRow />
+              <ProductTableRow />
+              <ProductTableRow />
+              <ProductTableRow />
+              <ProductTableRow />
+              <ProductTableRow />
+              <ProductTableRow />
+              <ProductTableRow />
+              <ProductTableRow />
             </tbody>
           </table>
         </div>

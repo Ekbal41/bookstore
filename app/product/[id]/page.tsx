@@ -6,8 +6,8 @@ import StarRating from "@/components/StartRating";
 export default function ProductDetails({ params }: { params: { id: string } }) {
   const product = getSingleProduct(Number(params.id));
   return (
-    <div className="pb-8 md:py-4 px-2 md:px-0">
-      <ol className="flex items-center gap-1 text-sm text-gray-600 py-3 md:py-0">
+    <div className="pb-8 px-2 md:px-0">
+      <ol className="flex items-center gap-1 text-sm text-gray-600 pb-3 md:pb-0">
         <li>
           <Link href="/" className="block transition hover:text-gray-700">
             <span className="sr-only"> Home </span>

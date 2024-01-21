@@ -5,8 +5,8 @@ import Link from "next/link";
 import StarRating from "@/components/StartRating";
 export default function Home() {
   return (
-    <div className="my-2 md:my-8 px-2 md:px-0">
-      <Hero />
+    <div className="my-2 md:my-8 px-2 md:px-0 ">
+      {/* <Hero /> */}
       <div className="mb-8">
         <h1 className="font-bold text-2xl mb-4 text-center md:text-start">
           Latest Products
