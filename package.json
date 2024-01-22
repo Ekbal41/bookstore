@@ -25,6 +25,7 @@
     "react-dom": "^18",
     "react-modern-drawer": "^1.2.2",
     "react-toastify": "^10.0.3",
+    "tailwindcss-animate": "^1.0.7",
     "ts-node": "^10.9.2"
   },
   "devDependencies": {

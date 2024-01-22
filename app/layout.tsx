@@ -21,10 +21,15 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <Navbar />
-        <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8 mt-20">{children}</div>
+        <div className="flex flex-col justify-between h-screen ">
+          <Navbar />
+          <div className="" style={{ minHeight: "4.1rem" }}></div>
+          <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8 w-full ">
+            {children}
+          </div>
+          <Footer />
+        </div>
         <ToastContainer />
-        <Footer />
       </body>
     </html>
   );

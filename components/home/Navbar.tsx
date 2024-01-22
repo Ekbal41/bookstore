@@ -40,11 +40,11 @@ export default function Navbar() {
   return (
     <Disclosure
       as="nav"
-      className="bg-white border-b-[1px] fixed w-full top-0 z-50 bg-opacity-80 backdrop-blur-md"
+      className="bg-white  fixed w-full top-0 z-50 bg-opacity-80 backdrop-blur-md"
     >
       {({ open }) => (
         <>
-          <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
+          <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8 border-b-[1px]">
             <div className="relative flex h-16 items-center justify-between">
               <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
                 {/* Mobile menu button*/}
