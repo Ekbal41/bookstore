@@ -9,11 +9,12 @@ import {
   ShieldCheckIcon,
   UserCircleIcon,
 } from "@heroicons/react/24/outline";
+import { Fade } from "react-awesome-reveal";
 
 export default function Dashboard() {
   return (
     <>
-      <div className="pb-8 px-2 md:px-0">
+      <div className="pb-8 px-2 md:px-0 ">
         <div>
           <Tab.Group>
             <div className="md:grid md:grid-cols-5 mt-4">
@@ -120,43 +121,56 @@ export default function Dashboard() {
               </Tab.List>
               <Tab.Panels className={"md:col-span-4 mt-4 md:mt-0 md:px-4 "}>
                 <Tab.Panel className={"outline-none"}>
-                  <MainPage />
+                  <Fade delay={50}>
+                    <MainPage />
+                  </Fade>
                 </Tab.Panel>
                 <Tab.Panel className={"outline-none"}>
-                  <Products />
+                  <Fade delay={50}>
+                    <Products />
+                  </Fade>
                 </Tab.Panel>
                 <Tab.Panel>
-                  <div>
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                    Repudiandae nostrum consectetur omnis corporis officiis vero
-                    perspiciatis pariatur. Commodi culpa voluptatum distinctio
-                    exercitationem fugiat corrupti recusandae laborum ut minus
-                    nulla laboriosam totam eaque necessitatibus, iure dolores
-                    nostrum alias aut quasi! Corporis nesciunt eum, quae
-                    explicabo est minima totam dolores ipsam at.
-                  </div>
+                  <Fade delay={50}>
+                    <div>
+                      Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                      Repudiandae nostrum consectetur omnis corporis officiis
+                      vero perspiciatis pariatur. Commodi culpa voluptatum
+                      distinctio exercitationem fugiat corrupti recusandae
+                      laborum ut minus nulla laboriosam totam eaque
+                      necessitatibus, iure dolores nostrum alias aut quasi!
+                      Corporis nesciunt eum, quae explicabo est minima totam
+                      dolores ipsam at.
+                    </div>
+                  </Fade>
                 </Tab.Panel>
                 <Tab.Panel>
-                  <div>
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                    Repudiandae nostrum consectetur omnis corporis officiis vero
-                    perspiciatis pariatur. Commodi culpa voluptatum distinctio
-                    exercitationem fugiat corrupti recusandae laborum ut minus
-                    nulla laboriosam totam eaque necessitatibus, iure dolores
-                    nostrum alias aut quasi! Corporis nesciunt eum, quae
-                    explicabo est minima totam dolores ipsam at.
-                  </div>
+                  <Fade delay={50}>
+                    <div>
+                      Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                      Repudiandae nostrum consectetur omnis corporis officiis
+                      vero perspiciatis pariatur. Commodi culpa voluptatum
+                      distinctio exercitationem fugiat corrupti recusandae
+                      laborum ut minus nulla laboriosam totam eaque
+                      necessitatibus, iure dolores nostrum alias aut quasi!
+                      Corporis nesciunt eum, quae explicabo est minima totam
+                      dolores ipsam at.
+                    </div>
+                  </Fade>
                 </Tab.Panel>
                 <Tab.Panel>
-                  <div>
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                    Repudiandae nostrum consectetur omnis corporis officiis vero
-                    perspiciatis pariatur. Commodi culpa voluptatum distinctio
-                    exercitationem fugiat corrupti recusandae laborum ut minus
-                    nulla laboriosam totam eaque necessitatibus, iure dolores
-                    nostrum alias aut quasi! Corporis nesciunt eum, quae
-                    explicabo est minima totam dolores ipsam at.
-                  </div>
+                  <Fade delay={50}>
+                    <div>
+                      Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                      Repudiandae nostrum consectetur omnis corporis officiis
+                      vero perspiciatis pariatur. Commodi culpa voluptatum
+                      distinctio exercitationem fugiat corrupti recusandae
+                      laborum ut minus nulla laboriosam totam eaque
+                      necessitatibus, iure dolores nostrum alias aut quasi!
+                      Corporis nesciunt eum, quae explicabo est minima totam
+                      dolores ipsam at.
+                    </div>
+                  </Fade>
                 </Tab.Panel>
               </Tab.Panels>
             </div>

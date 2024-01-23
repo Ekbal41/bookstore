@@ -10,7 +10,7 @@ export default function Products() {
           <h1 className="md:text-lg font-semibold ">Products</h1>
           <Link
             href="/product/create"
-            className="inline-block   pl-3 pr-4 py-2 text-xs font-medium rounded bg-gray-100 hover:bg-gray-200 focus:ring-2 focus:ring-black"
+            className="inline-block   pl-3 pr-4 py-2 text-xs font-medium rounded bg-gray-100 hover:bg-gray-200 "
           >
             <PlusIcon className="h-5 w-5 inline-block" /> Add New
           </Link>

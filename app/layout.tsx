@@ -24,7 +24,7 @@ export default function RootLayout({
         <div className="flex flex-col justify-between h-screen ">
           <Navbar />
           <div className="" style={{ minHeight: "4.1rem" }}></div>
-          <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8 w-full ">
+          <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8 w-full flex-grow">
             {children}
           </div>
           <Footer />
