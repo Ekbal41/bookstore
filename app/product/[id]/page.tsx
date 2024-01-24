@@ -1,13 +1,31 @@
+"use client";
 import { getSingleProduct } from "@/db";
 import Image from "next/image";
 import { ChevronRightIcon, HomeIcon } from "@heroicons/react/24/outline";
 import Link from "next/link";
 import StarRating from "@/components/StartRating";
+import { CartItem, useCart } from "@/providers/CartContext";
+
 export default function ProductDetails({ params }: { params: { id: string } }) {
   const product = getSingleProduct(Number(params.id));
+  const { addToCart, itemExistInCart } = useCart();
+  const item: CartItem = {
+    id: product.id,
+    name: product.name,
+    desc: product.desc,
+    quantity: 1,
+    price: product.price,
+    image: product.image,
+  };
+  const handleAddToCart = () => {
+    if (itemExistInCart(product.id)) {
+      return;
+    }
+    addToCart(item);
+  };
   return (
     <div className="pb-8 px-2 md:px-0">
-      <ol className="flex items-center gap-1 text-sm text-gray-600 pb-3 md:pb-0">
+      <ol className="flex items-center gap-1 text-sm text-gray-600 py-3 md:pb-0">
         <li>
           <Link href="/" className="block transition hover:text-gray-700">
             <span className="sr-only"> Home </span>
@@ -79,16 +97,18 @@ export default function ProductDetails({ params }: { params: { id: string } }) {
           </div>
           <p className="text-gray-700">{product.desc}</p>
           <p>
-            <span className="text-gray-500">Sold by :</span> {product.owner.name}
+            <span className="text-gray-500">Sold by :</span>{" "}
+            {product.owner.name}
           </p>
-          <div className="flex gap-2">
-            <input
-              type="number"
-              placeholder="Quantity"
-              className=" w-28 px-3 py-2 placeholder-gray-300 border border-gray-300 focus:border-white rounded-md focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
-            />
-            <button className="bg-black text-white px-6 py-2 rounded-md">
-              Add to Cart
+          <div className="">
+            <button
+              onClick={handleAddToCart}
+              className="bg-black text-white px-6 py-2 rounded-md"
+              disabled={itemExistInCart(Number(params.id))}
+            >
+              {itemExistInCart(Number(params.id))
+                ? "Added to Cart"
+                : "Add to Cart"}
             </button>
           </div>
         </div>

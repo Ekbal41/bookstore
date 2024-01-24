@@ -6,6 +6,8 @@ import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer } from "react-toastify";
 import Navbar from "@/components/home/Navbar";
 import Footer from "@/components/home/Footer";
+import { CartProvider } from "@/providers/CartContext";
+
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -21,14 +23,16 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <div className="flex flex-col justify-between h-screen ">
-          <Navbar />
-          <div className="" style={{ minHeight: "4.1rem" }}></div>
-          <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8 w-full flex-grow">
-            {children}
+        <CartProvider>
+          <div className="flex flex-col justify-between h-screen ">
+            <Navbar />
+            <div className="" style={{ minHeight: "4.1rem" }}></div>
+            <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8 w-full flex-grow">
+              {children}
+            </div>
+            <Footer />
           </div>
-          <Footer />
-        </div>
+        </CartProvider>
         <ToastContainer />
       </body>
     </html>
