@@ -48,7 +48,7 @@ export default function Navbar() {
             <div className="relative flex h-16 items-center justify-between">
               <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
                 {/* Mobile menu button*/}
-                <Disclosure.Button className="relative inline-flex items-center justify-center rounded-md p-2 text-black focus:outline-none focus:ring-2 focus:ring-black ">
+                <Disclosure.Button className="relative inline-flex items-center justify-center rounded-md p-2 text-black focus:outline-none">
                   <span className="absolute -inset-0.5" />
                   <span className="sr-only">Open main menu</span>
                   {open ? (
@@ -61,7 +61,10 @@ export default function Navbar() {
               <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
                 <Link
                   href="/"
-                  className="flex flex-shrink-0 items-center font-semibold font-mono text-md"
+                  className="flex flex-shrink-0 items-center font-semibold  text-2xl"
+                  style={{
+                    fontFamily: "cursive",
+                  }}
                 >
                   Nova Store
                 </Link>
@@ -211,7 +214,7 @@ export default function Navbar() {
           </div>
 
           <Disclosure.Panel className="sm:hidden">
-            <div className="space-y-1 px-2 pb-3 pt-2">
+            <div className="space-y-1 px-2 pb-3 pt-2 border-b-[1px] shadow-lg">
               {navigation.map((item, index) => (
                 <Disclosure.Button key={index}>
                   <Link

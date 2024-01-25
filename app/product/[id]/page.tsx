@@ -1,14 +1,21 @@
 "use client";
 import { getSingleProduct } from "@/db";
 import Image from "next/image";
-import { ChevronRightIcon, HomeIcon } from "@heroicons/react/24/outline";
+import {
+  ChevronRightIcon,
+  FlagIcon,
+  HomeIcon,
+} from "@heroicons/react/24/outline";
 import Link from "next/link";
 import StarRating from "@/components/StartRating";
 import { CartItem, useCart } from "@/providers/CartContext";
 
 export default function ProductDetails({ params }: { params: { id: string } }) {
   const product = getSingleProduct(Number(params.id));
-  const { addToCart, itemExistInCart } = useCart();
+  const {
+    addToCart,
+    itemExistInCart,
+  }: { addToCart: Function; itemExistInCart: Function } = useCart();
   const item: CartItem = {
     id: product.id,
     name: product.name,
@@ -24,8 +31,8 @@ export default function ProductDetails({ params }: { params: { id: string } }) {
     addToCart(item);
   };
   return (
-    <div className="pb-8 px-2 md:px-0">
-      <ol className="flex items-center gap-1 text-sm text-gray-600 py-3 md:pb-0">
+    <div className="pb-8 px-2 md:px-0 ">
+      <ol className="flex items-center gap-1 text-sm text-gray-600 mb-3 md:mb-2">
         <li>
           <Link href="/" className="block transition hover:text-gray-700">
             <span className="sr-only"> Home </span>
@@ -54,7 +61,7 @@ export default function ProductDetails({ params }: { params: { id: string } }) {
           <Image
             src={product.image}
             className="
-            rounded-md w-full h-full object-fit object-center shadow-md transition duration-500 ease-in-out"
+            rounded-md w-full  object-fit object-center shadow-md transition duration-500 ease-in-out"
             alt="Product Image"
             height={400}
             width={400}
@@ -111,6 +118,10 @@ export default function ProductDetails({ params }: { params: { id: string } }) {
                 : "Add to Cart"}
             </button>
           </div>
+          {/* <div>
+            <FlagIcon className="h-5 w-5 text-gray-500 inline-block me-1" />
+            Report this item
+            </div> */}
         </div>
       </div>
     </div>

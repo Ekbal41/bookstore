@@ -5,18 +5,16 @@ import Link from "next/link";
 import StarRating from "@/components/StartRating";
 export default function Home() {
   return (
-    <div className="my-2 md:my-8 px-2 md:px-0 ">
-      <div className="mb-8">
-        <h1 className="font-bold text-2xl mb-4 text-center md:text-start">
+    <div>
+      {/* <h1 className="font-bold text-2xl mb-4 text-center md:text-start">
           Latest Products
-        </h1>
-        <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3 lg:gap-8">
-          {products.map((product: Product) => (
-            <div key={product.id}>
-              <ProductCard {...product} />
-            </div>
-          ))}
-        </div>
+        </h1> */}
+      <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3 lg:gap-8">
+        {products.map((product: Product) => (
+          <div key={product.id}>
+            <ProductCard {...product} />
+          </div>
+        ))}
       </div>
     </div>
   );
