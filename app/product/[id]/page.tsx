@@ -156,11 +156,11 @@ export default function ProductDetails({ params }: { params: { id: string } }) {
               <div>
                 <input
                   type="text"
-                  className="bg-gray-100 outline-none px-4 py-3 border rounded-md w-full mb-4"
+                  className="bg-gray-100 outline-none px-4 py-3 border rounded-md w-full mb-4 focus:ring-2 focus:ring-black"
                   placeholder="Type review headline"
                 />
                 <textarea
-                  className="w-full mb-4 h-24 resize-none bg-gray-100 outline-none rounded-md border px-4 py-3"
+                  className="w-full mb-4 h-24 resize-none bg-gray-100 outline-none rounded-md border px-4 py-3 focus:ring-2 focus:ring-black"
                   placeholder="Write your review here"
                 />
                 <div className="flex lg:justify-end">

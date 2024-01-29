@@ -19,7 +19,13 @@ function classNames(...classes: string[]) {
   return classes.filter(Boolean).join(" ");
 }
 
-export default function Navbar() {
+export default function Navbar({
+  setColorMode,
+  colorMode,
+}: {
+  setColorMode: any;
+  colorMode: any;
+}) {
   const navigate = useRouter();
   const path = usePathname();
   const [user, setUser] = useState<any>(null);
@@ -40,11 +46,11 @@ export default function Navbar() {
   return (
     <Disclosure
       as="nav"
-      className="bg-white  fixed w-full top-0 z-50 bg-opacity-80 backdrop-blur-md"
+      className="bg-white  fixed w-full top-0 z-50 bg-opacity-80 backdrop-blur-md dark:bg-gray-800 dark:bg-opacity-80 dark:text-gray-100"
     >
       {({ open }) => (
         <>
-          <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8 border-b-[1px]">
+          <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8 border-b-[1px] dark:border-gray-700">
             <div className="relative flex h-16 items-center justify-between">
               <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
                 {/* Mobile menu button*/}
@@ -52,19 +58,16 @@ export default function Navbar() {
                   <span className="absolute -inset-0.5" />
                   <span className="sr-only">Open main menu</span>
                   {open ? (
-                    <XMarkIcon className="block h-6 w-6" aria-hidden="true" />
+                    <XMarkIcon className="block h-6 w-6 dark:text-gray-100" aria-hidden="true" />
                   ) : (
-                    <Bars3Icon className="block h-6 w-6" aria-hidden="true" />
+                    <Bars3Icon className="block h-6 w-6  dark:text-gray-100" aria-hidden="true" />
                   )}
                 </Disclosure.Button>
               </div>
               <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
                 <Link
                   href="/"
-                  className="flex flex-shrink-0 items-center font-semibold  text-2xl"
-                  style={{
-                    fontFamily: "cursive",
-                  }}
+                  className="flex flex-shrink-0 items-center font-semibold "
                 >
                   Nova Store
                 </Link>
@@ -76,8 +79,8 @@ export default function Navbar() {
                         href={item.href}
                         className={classNames(
                           path === item.href
-                            ? "bg-gray-100 "
-                            : " hover:bg-gray-100",
+                            ? "bg-gray-100 dark:bg-gray-700"
+                            : " hover:bg-gray-100 dark:hover:bg-gray-700",
                           "rounded-md px-3 py-2 text-sm font-medium"
                         )}
                         aria-current={path === item.href ? "page" : undefined}
@@ -93,7 +96,7 @@ export default function Navbar() {
                 {/* Profile dropdown */}
                 <Menu as="div" className="relative ml-3">
                   <div>
-                    <Menu.Button className="relative flex rounded-full text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
+                    <Menu.Button className="relative flex rounded-full text-sm focus:outline-none focus:ring-2 focus:ring-white dark:focus:ring-gray-700 focus:ring-offset-2 focus:ring-offset-gray-800">
                       <span className="absolute -inset-1.5" />
                       <span className="sr-only">Open user menu</span>
                       <img
@@ -112,7 +115,7 @@ export default function Navbar() {
                     leaveFrom="transform opacity-100 scale-100"
                     leaveTo="transform opacity-0 scale-95"
                   >
-                    <Menu.Items className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+                    <Menu.Items className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md dark:text-gray-100 bg-white dark:bg-gray-800 py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
                       {user && (
                         <>
                           <Menu.Item>
@@ -127,7 +130,7 @@ export default function Navbar() {
                               <Link
                                 href="/dashboard"
                                 className={classNames(
-                                  active ? "bg-gray-100" : "",
+                                  active ? "bg-gray-100 dark:bg-gray-700" : "",
                                   "block px-4 py-2 text-sm "
                                 )}
                               >
@@ -144,7 +147,7 @@ export default function Navbar() {
                               <Link
                                 href="/auth/signin"
                                 className={classNames(
-                                  active ? "bg-gray-100" : "",
+                                  active ? "bg-gray-100 dark:bg-gray-700" : "",
                                   "block px-4 py-2 text-sm"
                                 )}
                               >
@@ -157,7 +160,7 @@ export default function Navbar() {
                               <Link
                                 href="/auth/signup"
                                 className={classNames(
-                                  active ? "bg-gray-100" : "",
+                                  active ? "bg-gray-100 dark:bg-gray-700" : "",
                                   "block px-4 py-2 text-sm "
                                 )}
                               >
@@ -172,8 +175,8 @@ export default function Navbar() {
                           <Link
                             href="#!"
                             className={classNames(
-                              active ? "bg-gray-100" : "",
-                              "block px-4 py-2 text-sm  border-t-[1px] border-gray-200"
+                              active ? "bg-gray-100 dark:bg-gray-700" : "",
+                              "block px-4 py-2 text-sm  border-t-[1px] border-gray-200 dark:border-gray-700"
                             )}
                           >
                             FAQ
@@ -185,20 +188,19 @@ export default function Navbar() {
                           <Link
                             href="#!"
                             className={classNames(
-                              active ? "bg-gray-100" : "",
-                              "block px-4 py-2 text-sm "
+                              active ? "bg-gray-100 dark:bg-gray-700" : "",
+                              "block px-4 py-2 text-sm border-b-[1px] border-gray-200 dark:border-gray-700"
                             )}
                           >
                             Help
                           </Link>
                         )}
                       </Menu.Item>
-
                       {user && (
                         <Menu.Item>
                           {({ active }) => (
                             <div
-                              className="block px-4 py-2 text-sm cursor-pointer border-t-[1px] border-gray-200"
+                              className="block px-4 py-2 text-sm cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-700"
                               onClick={handleLogout}
                             >
                               Log Out
@@ -206,6 +208,31 @@ export default function Navbar() {
                           )}
                         </Menu.Item>
                       )}
+                      <Menu.Item>
+                        {({ active }) => (
+                          <div className="flex justify-between items-center ps-4 pe-3 py-2 text-sm ">
+                            <p>Dark Mode</p>
+                            <label className="relative inline-flex cursor-pointer items-center scale-75">
+                              <input
+                                id="switch"
+                                type="checkbox"
+                                className="peer sr-only"
+                                onChange={(e) => {
+                                  setColorMode(
+                                    e.target.checked ? "dark" : "light"
+                                  );
+                                }}
+                                checked={colorMode === "dark"}
+                              />
+                              <label
+                                htmlFor="switch"
+                                className="hidden"
+                              ></label>
+                              <div className="peer h-6 w-11 rounded-full border bg-slate-200 after:absolute after:left-[2px] after:top-0.5 after:h-5 after:w-5 after:rounded-full after:border after:border-gray-300 after:bg-white after:transition-all after:content-[''] peer-checked:bg-slate-800 peer-checked:after:translate-x-full peer-checked:after:border-white peer-focus:ring-green-300"></div>
+                            </label>
+                          </div>
+                        )}
+                      </Menu.Item>
                     </Menu.Items>
                   </Transition>
                 </Menu>
@@ -214,13 +241,13 @@ export default function Navbar() {
           </div>
 
           <Disclosure.Panel className="sm:hidden">
-            <div className="space-y-1 px-2 pb-3 pt-2 border-b-[1px] shadow-lg">
+            <div className="space-y-1 px-2 pb-3 pt-2 border-b-[1px] dark:border-gray-700 shadow-lg">
               {navigation.map((item, index) => (
                 <Disclosure.Button key={index}>
                   <Link
                     href={item.href}
                     className={classNames(
-                      path === item.href ? "bg-gray-100" : " hover:bg-gray-100",
+                      path === item.href ? "bg-gray-100 dark:bg-gray-700" : " hover:bg-gray-100 dark:hover:bg-gray-700",
                       "block rounded-md px-3 py-2 text-sm font-medium"
                     )}
                     aria-current={path === item.href ? "page" : undefined}

@@ -11,14 +11,14 @@ export default function ShoppingCart() {
     setIsOpen((prevState) => !prevState);
   };
   return (
-    <div>
+    <div className="">
       <button
         type="button"
         onClick={toggleDrawer}
-        className="relative rounded-full bg-gray-100 p-2 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
+        className="relative rounded-full bg-gray-100 dark:bg-gray-700 p-2 focus:outline-none "
       >
-        <span className="absolute -top-1 -right-1 inline-flex rounded-full text-white px-[5px] text-xs bg-black shadow-lg">
-          0
+        <span className="absolute -top-1 -right-1 inline-flex rounded-full text-white px-[5px] text-xs bg-black shadow-lg dark:bg-gray-900">
+          {cart.length}
         </span>
         <span className="absolute -inset-1.5" />
         <span className="sr-only">View cart</span>
@@ -29,18 +29,24 @@ export default function ShoppingCart() {
         onClose={toggleDrawer}
         direction="right"
         lockBackgroundScroll
-        className="!w-full md:!w-[400px] lg:!w-[500px]"
+        className="!w-full md:!w-[400px] lg:!w-[500px] !h-full"
       >
-        <div className="flex justify-between items-center border-b-[1px] py-2 pr-2 pl-4">
+        <div className="flex justify-between items-center border-b-[1px] py-2 pr-2 pl-4 dark:border-gray-700 dark:bg-gray-800">
           <div className="flex justify-between items-center gap-2">
-            <ShoppingBagIcon className="h-5 w-5 mb-1" aria-hidden="true" />
-            <h1>Shopping Cart</h1>
+            <ShoppingBagIcon
+              className="h-5 w-5 mb-1 dark:text-gray-100"
+              aria-hidden="true"
+            />
+            <h1 className="dark:text-gray-100">Shopping Cart</h1>
           </div>
           <button
             onClick={toggleDrawer}
-            className="hover:bg-gray-100 p-1 rounded-full focus:ring-2 focus:ring-black"
+            className="hover:bg-gray-100 p-1 rounded-full focus:ring-2 focus:ring-black dark:hover:bg-gray-700 focus:outline-none"
           >
-            <XMarkIcon className="h-6 w-6" aria-hidden="true" />
+            <XMarkIcon
+              className="h-6 w-6 dark:text-gray-100"
+              aria-hidden="true"
+            />
           </button>
         </div>
         <div>
@@ -64,14 +70,14 @@ const CartItems = ({
 }) => {
   return (
     <>
-      <div className="h-[calc(100vh-4rem)] overflow-y-auto scrollbar-hide px-4 flex flex-col justify-between">
-        <ul className="divide-y divide-gray-200">
+      <div className="h-[calc(100vh-2rem)] bg-white overflow-y-auto scrollbar-hide px-4 flex flex-col justify-between  dark:bg-gray-900">
+        <ul className="divide-y divide-gray-200 dark:divide-gray-700">
           {cart &&
             cart.map((item) => {
               return <CartItemX key={item.id} product={item} />;
             })}
         </ul>
-        <div className="border-t border-gray-200 px-4 py-6 sm:px-6">
+        <div className="border-t border-gray-200 px-4 py-6 sm:px-6 dark:border-gray-700">
           <div className="flex justify-between text-base font-medium text-gray-900">
             <p>Subtotal</p>
             <p>
@@ -87,17 +93,17 @@ const CartItems = ({
           <div className="mt-6">
             <a
               href="#"
-              className="flex items-center justify-center rounded-md border border-transparent bg-black px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-gray-900"
+              className="flex items-center justify-center rounded-md border border-transparent bg-black px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-gray-900 dark:hover:bg-black"
             >
               Checkout
             </a>
           </div>
-          <div className="mt-6 flex justify-center text-center text-sm text-gray-500">
+          <div className="my-6 flex justify-center text-center text-sm text-gray-500">
             <p>
-              or
+             
               <button
                 type="button"
-                className="font-medium text-black  ms-1"
+                className="font-medium text-black  ms-1 dark:text-gray-100"
                 onClick={() => setIsOpen((prevState) => !prevState)}
               >
                 Continue Shopping
@@ -116,7 +122,7 @@ const CartItemX = ({ product }: { product: CartItem }) => {
   return (
     <>
       <li className="flex py-4 ">
-        <div className="h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-gray-200 shadow-sm">
+        <div className="h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-gray-200 shadow-sm dark:border-gray-700">
           <img
             src={product.image}
             alt="product image"
@@ -128,7 +134,9 @@ const CartItemX = ({ product }: { product: CartItem }) => {
           <div>
             <div className="flex justify-between text-base font-medium text-gray-900">
               <h3>
-                <a href="#">{product.name}</a>
+                <a href="#" className="dark:text-gray-100">
+                  {product.name}
+                </a>
               </h3>
               <p className="ml-4">৳{product.price}</p>
             </div>
@@ -136,10 +144,10 @@ const CartItemX = ({ product }: { product: CartItem }) => {
           </div>
           <div className="flex flex-1 items-end justify-between text-sm">
             <div className="flex gap-2">
-              <div className="py-1 px-2 text-xs rounded-md bg-gray-50 border-[1px] capitalize">
+              <div className="py-1 px-2 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-100 text-xs rounded-md bg-gray-50 border-[1px] capitalize">
                 <p> Lifetime</p>
               </div>
-              <div className="py-1 px-2 text-xs rounded-md bg-gray-50 border-[1px] capitalize">
+              <div className="py-1 px-2 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-100 text-xs rounded-md bg-gray-50 border-[1px] capitalize">
                 <p> pro</p>
               </div>
             </div>
@@ -147,7 +155,7 @@ const CartItemX = ({ product }: { product: CartItem }) => {
             <div className="flex">
               <button
                 type="button"
-                className="font-medium bg-red-50 px-3 py-1 rounded-md text-red-500"
+                className="font-medium bg-red-50 px-3 py-1 rounded-md text-red-500 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-100"
                 onClick={() => removeFromCart(product.id)}
               >
                 Remove
@@ -163,12 +171,12 @@ const CartItemX = ({ product }: { product: CartItem }) => {
 const EmptyCart = () => {
   return (
     <>
-      <div className="flex justify-center items-center h-screen flex-col gap-2  pb-28">
+      <div className="flex justify-center items-center h-screen flex-col gap-2 bg-white dark:bg-gray-900  pb-28">
         <ShoppingBagIcon
           className="h-14 w-14 text-gray-400"
           aria-hidden="true"
         />
-        <p className="text-xl font-semibold">Your cart is empty!</p>
+        <p className="text-xl font-semibold dark:text-gray-100">Your cart is empty!</p>
         <p className="text-sm text-gray-600">
           Add something to make it happy :)
         </p>

@@ -6,9 +6,6 @@ import StarRating from "@/components/StartRating";
 export default function Home() {
   return (
     <div>
-      {/* <h1 className="font-bold text-2xl mb-4 text-center md:text-start">
-          Latest Products
-        </h1> */}
       <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3 lg:gap-8">
         {products.map((product: Product) => (
           <div key={product.id}>
@@ -23,8 +20,8 @@ export default function Home() {
 const ProductCard = (product: Product) => {
   return (
     <>
-      <div className="hover:border-gray-300 rounded-md border-[1px] border-gray-200 bg-white hover:shadow-xl transition duration-500 ease-in-out">
-        <div className="border-b-[1px] border-gray-200 h-52 md:h-56 lg:h-60 overflow-hidden rounded-t-md">
+      <div className="hover:border-gray-300 rounded-md border-[1px] border-gray-200 dark:border-gray-700 dark:bg-gray-800  bg-white hover:shadow-xl ">
+        <div className="border-b-[1px] border-gray-200 dark:border-gray-700 h-52 md:h-56 lg:h-60 overflow-hidden rounded-t-md">
           <Image
             src={product.image}
             className="
@@ -43,16 +40,16 @@ const ProductCard = (product: Product) => {
             <h3 className="font-medium sm:text-lg">
               <Link
                 href={`/product/${product.id}`}
-                className="hover:underline "
+                className="hover:underline dark:text-gray-100"
               >
                 {product.name.slice(0, 25) + "..."}
               </Link>
             </h3>
-            <p className="font-medium text-md">৳{product.price}</p>
+            <p className="font-medium text-md dark:text-gray-100">৳{product.price}</p>
           </div>
           <div className="flex justify-between items-center mt-1">
-            <h3 className="font-medium text-xs">
-              <ShoppingCartIcon className="h-5 w-5 me-1 text-gray-500 inline-block" />
+            <h3 className="font-medium text-xs dark:text-gray-100">
+              <ShoppingCartIcon className="h-5 w-5 me-1 text-gray-500 inline-block dark:text-gray-100" />
               {product.purchases} Purchases
             </h3>
             <StarRating rating={product.rating} />
