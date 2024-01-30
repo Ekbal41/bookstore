@@ -34,8 +34,8 @@ export default function SignUpPage() {
     <div className="h-full w-full flex justify-center items-center">
       <div className="max-w-md flex-grow">
         <div className="text-center">
-          <h1 className="my-3 text-3xl font-semibold text-black">Sign Up</h1>
-          <p className="text-gray-500 dark:text-gray-600">
+          <h1 className="my-3 text-3xl font-semibold text-black dark:text-gray-100 ">Sign Up</h1>
+          <p className="text-gray-600 dark:text-gray-400">
             Create a new account
           </p>
         </div>
@@ -55,7 +55,7 @@ export default function SignUpPage() {
                 id="email"
                 placeholder="you@company.com"
                 required
-                className="w-full px-3 py-2 placeholder-gray-300 border border-gray-300 focus:border-white rounded-md focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
+                className="w-full px-3 py-2 placeholder-gray-300 border dark:ring-gray-800 dark:bg-gray-700 border-gray-300 focus:border-white rounded-md focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
               />
             </div>
             <div className="mb-6">
@@ -72,7 +72,7 @@ export default function SignUpPage() {
                 name="password"
                 id="password"
                 placeholder="Your Password"
-                className="w-full px-3 py-2 placeholder-gray-300 border border-gray-300 focus:border-white rounded-md focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
+                className="w-full px-3 py-2 placeholder-gray-300 border dark:ring-gray-800 dark:bg-gray-700 border-gray-300 focus:border-white rounded-md focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
                 minLength={8}
                 // pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
                 // title={`Must contain at least one number and one uppercase
@@ -94,7 +94,7 @@ export default function SignUpPage() {
                 name="confirm_password"
                 id="confirm_password"
                 placeholder="Your Password"
-                className="w-full px-3 py-2 placeholder-gray-300 border border-gray-300 focus:border-white rounded-md focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
+                className="w-full px-3 py-2 placeholder-gray-300 dark:ring-gray-800 dark:bg-gray-700 border border-gray-300 focus:border-white rounded-md focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
                 minLength={8}
                 // pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
                 // title={`Must contain at least one number and one uppercase
@@ -105,7 +105,7 @@ export default function SignUpPage() {
             <div className="mb-6">
               <button
                 type="submit"
-                className="w-full px-3 py-3 text-white bg-black rounded-md focus:bg-gray-900 focus:outline-none"
+                className="w-full px-3 py-3 text-white bg-black rounded-md dark:focus:bg-black focus:bg-gray-900 focus:outline-none"
               >
                 {loading ? (
                   <span>
@@ -118,11 +118,11 @@ export default function SignUpPage() {
               </button>
             </div>
 
-            <p className="text-sm text-center text-gray-600">
+            <p className="text-sm text-center text-gray-600 dark:text-gray-400 ">
               Already have an account yet?{" "}
               <Link
                 href="/auth/signin"
-                className="focus:outline-none focus:underline underline underline-offset-4 hover:text-black"
+                className="focus:outline-none focus:underline underline underline-offset-4 hover:text-black dark:hover:text-gray-300"
               >
                 Sign in
               </Link>

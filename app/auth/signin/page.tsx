@@ -31,8 +31,12 @@ export default function SignInPage() {
     <div className="h-full w-full flex justify-center items-center">
       <div className="max-w-md flex-grow ">
         <div className="text-center">
-          <h1 className="my-3 text-3xl font-semibold ">Sign In</h1>
-          <p className="text-gray-600 ">Sign in to access your account</p>
+          <h1 className="my-3 text-3xl font-semibold dark:text-gray-100">
+            Sign In
+          </h1>
+          <p className="text-gray-600 dark:text-gray-400">
+            Sign in to access your account
+          </p>
         </div>
 
         <div className="m-7">
@@ -40,7 +44,7 @@ export default function SignInPage() {
             <div className="mb-6">
               <label
                 htmlFor="email"
-                className="block mb-2 text-sm text-gray-600 "
+                className="block mb-2 text-sm text-gray-600 dark:text-gray-400"
               >
                 Email Address
               </label>
@@ -50,7 +54,7 @@ export default function SignInPage() {
                 id="email"
                 placeholder="you@company.com"
                 required
-                className="w-full px-3 py-2 placeholder-gray-300 border border-gray-300 focus:border-white rounded-md focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
+                className="w-full px-3 py-2 placeholder-gray-300 border dark:ring-gray-800 dark:bg-gray-700 border-gray-300 focus:border-white rounded-md focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
               />
             </div>
             <div className="mb-6">
@@ -63,7 +67,7 @@ export default function SignInPage() {
                 </label>
                 <Link
                   href="/auth/password-recovery"
-                  className="text-sm text-gray-600 hover:underline focus:outline-none focus:text-black hover:text-black focus:underline"
+                  className="text-sm text-gray-600 dark:text-gray-400  hover:underline focus:outline-none focus:text-black hover:text-black focus:underline"
                 >
                   Forgot password?
                 </Link>
@@ -73,7 +77,7 @@ export default function SignInPage() {
                 name="password"
                 id="password"
                 placeholder="Your Password"
-                className="w-full px-3 py-2 placeholder-gray-300 border border-gray-300 focus:border-white rounded-md focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
+                className="w-full px-3 py-2 placeholder-gray-300 border border-gray-300 focus:border-white rounded-md focus:outline-none focus:ring-2 dark:ring-gray-800 dark:bg-gray-700 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
                 minLength={8}
                 // pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
                 // title={`Must contain at least one number and one uppercase
@@ -84,7 +88,7 @@ export default function SignInPage() {
             <div className="mb-6">
               <button
                 type="submit"
-                className="w-full px-3 py-3 text-white bg-black rounded-md focus:bg-gray-900 focus:outline-none"
+                className="w-full px-3 py-3 text-white bg-black rounded-md focus:bg-gray-900 dark:focus:bg-black focus:outline-none"
               >
                 {loading ? (
                   <span>
@@ -97,15 +101,14 @@ export default function SignInPage() {
               </button>
             </div>
 
-            <p className="text-sm text-center text-gray-600">
+            <p className="text-sm text-center text-gray-600 dark:text-gray-400">
               Don&#x27;t have an account yet?{" "}
               <Link
                 href="/auth/signup"
-                className="focus:outline-none focus:underline underline underline-offset-4 hover:text-black"
+                className="focus:outline-none focus:underline underline underline-offset-4 hover:text-black dark:hover:text-gray-300"
               >
-                Sign up
+                Sign up.
               </Link>
-              .
             </p>
             {/* <p className="text-sm text-center text-gray-600 px-4">
             By clicking sign in, you agree to our{" "}

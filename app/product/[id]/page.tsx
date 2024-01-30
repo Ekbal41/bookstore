@@ -34,7 +34,7 @@ export default function ProductDetails({ params }: { params: { id: string } }) {
   };
   return (
     <div className="pb-8 md:px-0 ">
-      <ol className="flex items-center gap-1 text-sm text-gray-600 mb-3 md:mb-2">
+      <ol className="flex items-center gap-1 text-sm text-gray-600 mb-3 md:mb-2 dark:text-gray-400">
         <li>
           <Link href="/" className="block transition hover:text-gray-700">
             <span className="sr-only"> Home </span>
@@ -72,7 +72,7 @@ export default function ProductDetails({ params }: { params: { id: string } }) {
         </div>
         <div className="flex flex-col gap-4">
           <div>
-            <h1 className="font-bold text-xl md:text-2xl lg:text-3xl text-start">
+            <h1 className="font-bold text-xl md:text-2xl lg:text-3xl text-start dark:text-gray-100">
               {product.name}
             </h1>
             <div className="flex gap-2 items-center">
@@ -89,7 +89,7 @@ export default function ProductDetails({ params }: { params: { id: string } }) {
                 {product.category.map((cat) => (
                   <span
                     key={cat}
-                    className="bg-gray-100 text-gray-600 text-xs px-2 py-1 rounded-md"
+                    className="bg-gray-100 text-gray-600 dark:bg-gray-800 dark:text-gray-100 dark:border dark:border-gray-700 text-xs px-2 py-1 rounded-md"
                   >
                     {cat}
                   </span>
@@ -98,13 +98,13 @@ export default function ProductDetails({ params }: { params: { id: string } }) {
             }
           </div>
           <div className="flex items-center gap-4">
-            <p className="font-bold text-4xl">৳{product.price}</p>
+            <p className="font-bold text-4xl dark:text-gray-100">৳{product.price}</p>
             <div>
-              <p className="font-medium"> Save {product.discount}%</p>
+              <p className="font-medium dark:text-gray-100"> Save {product.discount}%</p>
               <p className="text-gray-400">Inclusive of all Taxes.</p>
             </div>
           </div>
-          <p className="text-gray-700">{product.desc}</p>
+          <p className="text-gray-700 dark:text-gray-400">{product.desc}</p>
           <p>
             <span className="text-gray-500">Sold by :</span>{" "}
             {product.owner.name}
@@ -129,14 +129,14 @@ export default function ProductDetails({ params }: { params: { id: string } }) {
       </div>
       <div className="mt-12">
         <div className="grid grid-cols-3 gap-8">
-          <div className="col-span-3 lg:col-span-1  rounded-md p-6 md:p-8 border h-fit">
+          <div className="col-span-3 lg:col-span-1  rounded-md p-6 md:p-8 border h-fit dark:border-gray-700">
             <div className="flex justify-center items-center flex-col mb-8">
-              <h1 className="text-2xl font-semibold mb-4">Customer Reviews </h1>
-              <div className="flex gap-3 bg-gray-50 py-3 px-3 border-[1px] rounded-md mb-2">
+              <h1 className="text-2xl font-semibold mb-4 dark:text-gray-100">Customer Reviews </h1>
+              <div className="flex gap-3 bg-gray-50 py-3 px-3 border-[1px] rounded-md mb-2 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-100">
                 <StarRating rating={4.5} />
                 <p className="text-sm">4.5 out of 5</p>
               </div>
-              <p className="text-gray-500">30 customer ratings</p>
+              <p className="text-gray-500 dark:text-gray-400">30 customer ratings</p>
             </div>
             <div className="flex flex-col gap-3">
               <RatingLine rating={80} type={1} />
@@ -147,20 +147,20 @@ export default function ProductDetails({ params }: { params: { id: string } }) {
             </div>
           </div>
           <div className="col-span-3 lg:col-span-2 ">
-            <div className="border rounded-md mb-8 p-6 md:p-8">
+            <div className="border rounded-md mb-8 p-6 md:p-8 dark:border-gray-700">
               <div className="mb-6">
-                <h1 className="text-xl font-semibold mb-4">Write a Review </h1>
-                <p>Click on a star to rate it!</p>
+                <h1 className="text-xl font-semibold mb-4 dark:text-gray-100">Write a Review </h1>
+                <p className="dark:text-gray-100">Click on a star to rate it!</p>
                 <StarRating rating={4} />
               </div>
               <div>
                 <input
                   type="text"
-                  className="bg-gray-100 outline-none px-4 py-3 border rounded-md w-full mb-4 focus:ring-2 focus:ring-black"
+                  className="bg-gray-100 outline-none dark:ring-gray-800 dark:text-gray-400 dark:bg-gray-700 px-4 py-3 border rounded-md w-full mb-4 focus:ring-2 focus:ring-black"
                   placeholder="Type review headline"
                 />
                 <textarea
-                  className="w-full mb-4 h-24 resize-none bg-gray-100 outline-none rounded-md border px-4 py-3 focus:ring-2 focus:ring-black"
+                  className="w-full mb-4 h-24 resize-none dark:ring-gray-800 dark:bg-gray-700 dark:text-gray-400 bg-gray-100 outline-none rounded-md border px-4 py-3 focus:ring-2 focus:ring-black"
                   placeholder="Write your review here"
                 />
                 <div className="flex lg:justify-end">
@@ -188,14 +188,14 @@ const RatingLine = ({ rating, type }: { rating: number; type: number }) => {
   return (
     <>
       <div className="flex gap-2 items-center">
-        <p className="text-nowrap text-sm">{type} start</p>
+        <p className="text-nowrap text-sm dark:text-gray-100">{type} start</p>
         <div className="overflow-hidden bg-gray-100 h-3 rounded-full w-full ">
           <span
             className="h-full bg-yellow-500 w-full block rounded-full"
             style={{ width: `${rating}%` }}
           ></span>
         </div>
-        <p className="text-sm">{rating}%</p>
+        <p className="text-sm dark:text-gray-100">{rating}%</p>
       </div>
     </>
   );
@@ -204,13 +204,13 @@ const RatingLine = ({ rating, type }: { rating: number; type: number }) => {
 const Review = () => {
   return (
     <>
-      <div className="border rounded-md">
-        <div className="p-6 md:p-8 border-b-[1px]">
+      <div className="border rounded-md dark:border-gray-700">
+        <div className="p-6 md:p-8 border-b-[1px] dark:border-gray-700">
           {" "}
-          <h1 className="text-xl font-semibold mb-4">
+          <h1 className="text-xl font-semibold mb-4 dark:text-gray-100">
             Quality is not good. I am not satisfied with the product.
           </h1>
-          <p>
+          <p className="dark:text-gray-400">
             {" "}
             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ullam
             commodi illum repellat, debitis accusamus aliquid quibusdam minima
@@ -227,12 +227,12 @@ const Review = () => {
                 src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
                 className="border-[1px] h-9 w-9 rounded-full"
               />
-              <p className="capitalize ">
+              <p className="capitalize dark:text-gray-100">
                 Asif Ekbal
                 <span className="ms-2 text-sm text-gray-500">12 jan, 2024</span>
               </p>
             </div>
-            <div className="flex gap-3 items-center ms-11 flex-wrap">
+            <div className="flex gap-3 items-center ms-11 flex-wrap dark:text-gray-100">
               <div>
                 {" "}
                 <StarIcon className="h-5 w-5 text-yellow-500 inline-block mb-1" />{" "}
@@ -242,7 +242,7 @@ const Review = () => {
                 <HandThumbUpIcon className="h-5 w-5 text-gray-500 inline-block mb-1" />{" "}
                 45
               </div>
-              <button className="px-3 py-1 hover:bg-gray-100 rounded-full transition ease-in-out duration-300">
+              <button className="px-3 py-1 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-full transition ease-in-out duration-300">
                 Reply
               </button>
             </div>
