@@ -7,6 +7,7 @@ export default function Home() {
   return (
     <>
       <Hero />
+      <Categories />
       <div>
         <h1 className="text-xl mb-4 font-medium text-center md:text-start dark:text-gray-100">
           New Products
@@ -74,12 +75,14 @@ const Hero = () => {
       <div className="grid lg:grid-cols-2 items-center justify-between mb-10 xl:mb-20 xl:mt-16">
         <div>
           <div>
-            <div className="bg-gray-100 inline-block text-sm 
-            dark:bg-gray-800 dark:text-gray-100 dark:border dark:border-gray-700
-            px-3 py-1 mb-2 rounded-full text-gray-600">
-              <p>11th Anniversary Sale!</p>
+            <div
+              className="bg-gray-100 inline-block text-sm 
+            dark:bg-gray-800 dark:text-gray-100 border dark:border-gray-700
+            px-3 py-1 mb-4 rounded-full text-gray-600"
+            >
+              <p>11th Anniversary Sale!🎉</p>
             </div>
-            <h1 className="font-bold text-xl lg:text-5xl md:text-3xl mb-4 dark:text-gray-100">
+            <h1 className="font-bold text-xl lg:text-5xl md:text-3xl mb-4 text-gray-900 dark:text-gray-100">
               Find everything you need to build your website
             </h1>
             <p className=" dark:text-gray-100">
@@ -99,10 +102,39 @@ const Hero = () => {
             </a>
           </div>
         </div>
-        <div className=" flex justify-end items-center bg-red-10">
-         
-        </div>
+        <div className=" flex justify-end items-center bg-red-10"></div>
       </div>
+    </>
+  );
+};
+
+const Categories = () => {
+  return (
+    <div
+      className="mb-8 flex gap-4
+    overflow-x-auto scrollbar-hide
+    backdrop-filter backdrop-blur-md
+    "
+    >
+      <CategoryButton name="laravel" />
+      <CategoryButton name="django" />
+      <CategoryButton name="react js template" />
+      <CategoryButton name="vue js template" />
+      <CategoryButton name="angular js template" />
+      <CategoryButton name="tailwind css" />
+      <CategoryButton name="bootstrap" />
+      <CategoryButton name="wordpress" />
+      <CategoryButton name="shopify" />
+    </div>
+  );
+};
+
+const CategoryButton = ({ name }: { name: string }) => {
+  return (
+    <>
+      <button className="bg-gray-100 px-3 py-2 md:px-6 Md:py-4 rounded-md hover:bg-gray-100/75 border dark:bg-gray-800 dark:border-gray-700 dark:text-gray-100">
+        <p className="text-xl text-nowrap capitalize">{name}</p>
+      </button>
     </>
   );
 };
