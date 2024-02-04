@@ -3,15 +3,24 @@ import { ShoppingCartIcon } from "@heroicons/react/24/outline";
 import { products, type Product } from "@/db";
 import Link from "next/link";
 import StarRating from "@/components/StartRating";
+import CTA from "@/components/home/CTA";
 export default function Home() {
   return (
     <>
       <Hero />
       <Categories />
+      {/* <div className="mb-8">
+        <Title text="Populer This Week" />
+        <div className="flex gap-4 overflow-x-auto scrollbar-hide">
+          {products.map((product: Product) => (
+            <div key={product.id}>
+              <ProductCartMini {...product} />
+            </div>
+          ))}
+        </div>
+      </div> */}
       <div>
-        <h1 className="text-xl mb-4 font-medium text-center md:text-start dark:text-gray-100">
-          New Products
-        </h1>
+        <Title text="Populer This Week" />
         <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3 lg:gap-8">
           {products.map((product: Product) => (
             <div key={product.id}>
@@ -20,14 +29,44 @@ export default function Home() {
           ))}
         </div>
       </div>
+      {/* <CTA /> */}
     </>
   );
 }
 
+const Title = ({ text }: { text: string }) => {
+  return (
+    <>
+      <h1 className="text-2xl mb-4 font-bold text-center md:text-start dark:text-gray-100">
+        {text}
+      </h1>
+    </>
+  );
+};
+
+const ProductCartMini = (product: Product) => {
+  return (
+    <>
+      <div className="shadow-md p-2 my-2 rounded-md bg-gray-50 border">
+        <Image
+          src={product.image}
+          alt="Product Image"
+          height={600}
+          width={600}
+          className="rounded-md object-cover min-h-72 min-w-64"
+        />
+        <h3 className="font-medium text-md dark:text-gray-100 mt-2">
+          <Link href={`/product/${product.id}`}>{product.name}</Link>
+        </h3>
+      </div>
+    </>
+  );
+};
+
 const ProductCard = (product: Product) => {
   return (
     <>
-      <div className="hover:border-gray-300 rounded-md border-[1px] border-gray-200 dark:border-gray-700 dark:bg-gray-800  bg-white hover:shadow-xl ">
+      <div className="hover:border-gray-300  rounded-md border-[1px] border-gray-200 dark:border-gray-700 dark:bg-gray-800  bg-white hover:shadow-md ">
         <div className="border-b-[1px] border-gray-200 dark:border-gray-700 h-52 md:h-56 lg:h-60 overflow-hidden rounded-t-md">
           <Image
             src={product.image}
@@ -42,7 +81,11 @@ const ProductCard = (product: Product) => {
             unoptimized={true}
           />
         </div>
-        <div className="p-3">
+
+        <div className="p-3 relative">
+          {/* <button className="absolute -top-4 right-2 bg-blue-500 text-white text-sm px-3 shadow-lg py-1 rounded-full hover:bg-blue-600">
+            Add to Cart
+          </button> */}
           <div className="flex justify-between items-center">
             <h3 className="font-medium sm:text-lg">
               <Link
@@ -82,7 +125,7 @@ const Hero = () => {
             >
               <p>11th Anniversary Sale!🎉</p>
             </div>
-            <h1 className="font-bold text-xl lg:text-5xl md:text-3xl mb-4 text-gray-900 dark:text-gray-100">
+            <h1 className="font-bold text-xl lg:text-5xl md:text-3xl mb-4 text-gray-800 dark:text-gray-100">
               Find everything you need to build your website
             </h1>
             <p className=" dark:text-gray-100">

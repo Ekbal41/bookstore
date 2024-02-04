@@ -1,7 +1,12 @@
 "use client";
 import { Fragment, useEffect, useState } from "react";
 import { Disclosure, Menu, Transition } from "@headlessui/react";
-import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
+import {
+  Bars3Icon,
+  MagnifyingGlassIcon,
+  ShoppingBagIcon,
+  XMarkIcon,
+} from "@heroicons/react/24/outline";
 import Link from "next/link";
 import ShoppingCart from "@/components/cart/ShoppingCart";
 import { getUser, logOut } from "@/app/actions";
@@ -58,17 +63,24 @@ export default function Navbar({
                   <span className="absolute -inset-0.5" />
                   <span className="sr-only">Open main menu</span>
                   {open ? (
-                    <XMarkIcon className="block h-6 w-6 dark:text-gray-100" aria-hidden="true" />
+                    <XMarkIcon
+                      className="block h-6 w-6 dark:text-gray-100"
+                      aria-hidden="true"
+                    />
                   ) : (
-                    <Bars3Icon className="block h-6 w-6  dark:text-gray-100" aria-hidden="true" />
+                    <Bars3Icon
+                      className="block h-6 w-6  dark:text-gray-100"
+                      aria-hidden="true"
+                    />
                   )}
                 </Disclosure.Button>
               </div>
               <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
                 <Link
                   href="/"
-                  className="flex flex-shrink-0 items-center font-semibold "
+                  className="flex flex-shrink-0 items-center font-bold "
                 >
+                  <ShoppingBagIcon className="h-6 w-6 dark:text-gray-100 inline-block me-2 mb-1" />
                   Nova Store
                 </Link>
                 <div className="hidden sm:ml-6 sm:block">
@@ -92,6 +104,9 @@ export default function Navbar({
                 </div>
               </div>
               <div className="absolute inset-y-0 right-0 flex md:gap-3 items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
+                <div className="hidden md:block">
+                  <SearchBox />
+                </div>
                 <ShoppingCart />
                 {/* Profile dropdown */}
                 <Menu as="div" className="relative ml-3">
@@ -247,7 +262,9 @@ export default function Navbar({
                   <Link
                     href={item.href}
                     className={classNames(
-                      path === item.href ? "bg-gray-100 dark:bg-gray-700" : " hover:bg-gray-100 dark:hover:bg-gray-700",
+                      path === item.href
+                        ? "bg-gray-100 dark:bg-gray-700"
+                        : " hover:bg-gray-100 dark:hover:bg-gray-700",
                       "block rounded-md px-3 py-2 text-sm font-medium"
                     )}
                     aria-current={path === item.href ? "page" : undefined}
@@ -256,6 +273,9 @@ export default function Navbar({
                   </Link>
                 </Disclosure.Button>
               ))}
+              <div className="md:hidden">
+                <SearchBox />
+              </div>
             </div>
           </Disclosure.Panel>
         </>
@@ -263,3 +283,17 @@ export default function Navbar({
     </Disclosure>
   );
 }
+const SearchBox = () => {
+  return (
+    <>
+      <div className=" flex items-center gap-2 border px-2 py-1 rounded-md dark:border-gray-700">
+        <MagnifyingGlassIcon className="w-4 h-4 text-gray-500" />
+        <input
+          type="search"
+          placeholder="Serach here.."
+          className="outline-none bg-transparent w-full  placeholder-gray-300 placeholder:text-sm"
+        />
+      </div>
+    </>
+  );
+};

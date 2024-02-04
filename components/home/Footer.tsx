@@ -11,7 +11,7 @@ export default function Footer() {
                 <h1 className="text-2xl dark:text-gray-100">Nova Store</h1>
               </div>
 
-              <p className="mt-6 max-w-md text-center leading-relaxed  dark:text-gray-100 dark:text-gra-100  sm:max-w-xs sm:text-left">
+              <p className="mt-6 max-w-md text-center leading-relaxed  dark:text-gray-400 dark:text-gra-100  sm:max-w-xs sm:text-left">
                 You can find here all the web development and web design
                 resources for your next project.
               </p>
@@ -173,9 +173,9 @@ export default function Footer() {
             </div>
           </div>
 
-          <div className="mt-12 border-t border-gray-100 pt-6 dark:border-gray-800">
+          <div className="mt-12 border-t border-gray-200  pt-6 dark:border-gray-700">
             <div className="text-center sm:flex sm:justify-between sm:text-left">
-              <p className="text-sm text-gray-600 dark:text-gray-400 font-light">
+              <p className="text-sm text-gray-700 dark:text-gray-400 font-normal">
                 <a
                   className="inline-block  transition hover:text-gray-500 "
                   href="/"
@@ -201,14 +201,14 @@ export default function Footer() {
                 </a>
               </p>
 
-              <p className="mt-4 text-sm font-light text-gray-600 dark:text-gray-400 sm:order-first sm:mt-0">
+              <p className="mt-4 text-sm font-normal text-gray-700 dark:text-gray-400 sm:order-first sm:mt-0">
                 &copy; 2022 Nova Store Inc.
               </p>
             </div>
           </div>
           <button
             onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-            className="absolute right-6 top-24 bg-blue-500 text-white p-3 rounded-full shadow-lg dark:bg-blue-500/75 dark:text-white/75"
+            className="absolute animate-bounce right-6 top-24 bg-blue-500 text-white p-3 rounded-full shadow-lg dark:bg-blue-500/75 dark:text-white/75"
           >
             <ArrowUpIcon className="h-6 w-6" />
           </button>
