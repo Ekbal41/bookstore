@@ -1,7 +1,9 @@
-import { EnvelopeIcon } from "@heroicons/react/24/outline";
-import Image from "next/image";
+"use client";
+import { EnvelopeIcon, HomeIcon } from "@heroicons/react/24/outline";
+import { useRouter } from "next/navigation";
 
 export default function RecoveryEmailSent() {
+  const router = useRouter();
   return (
     <div className="h-full w-full flex justify-center items-center">
       <div className="max-w-md flex-grow">
@@ -15,6 +17,16 @@ export default function RecoveryEmailSent() {
             Please check your inbox and follow the given instructions. Thank
             you!
           </p>
+          <div className="flex justify-center">
+            {" "}
+            <button
+              className="mt-4 bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded-full w-fit"
+              onClick={() => router.push("/")}
+            >
+              <HomeIcon className="h-5 w-5 inline-block -mt-1 me-2" />
+              Go Home
+            </button>
+          </div>
         </div>
       </div>
     </div>

@@ -9,17 +9,7 @@ export default function Home() {
     <>
       <Hero />
       <Categories />
-      {/* <div className="mb-8">
-        <Title text="Populer This Week" />
-        <div className="flex gap-4 overflow-x-auto scrollbar-hide">
-          {products.map((product: Product) => (
-            <div key={product.id}>
-              <ProductCartMini {...product} />
-            </div>
-          ))}
-        </div>
-      </div> */}
-      <div>
+      <div className="mb-8">
         <Title text="Populer This Week" />
         <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3 lg:gap-8">
           {products.map((product: Product) => (
@@ -28,8 +18,8 @@ export default function Home() {
             </div>
           ))}
         </div>
+        <Pagination />
       </div>
-      {/* <CTA /> */}
     </>
   );
 }
@@ -44,29 +34,10 @@ const Title = ({ text }: { text: string }) => {
   );
 };
 
-const ProductCartMini = (product: Product) => {
-  return (
-    <>
-      <div className="shadow-md p-2 my-2 rounded-md bg-gray-50 border">
-        <Image
-          src={product.image}
-          alt="Product Image"
-          height={600}
-          width={600}
-          className="rounded-md object-cover min-h-72 min-w-64"
-        />
-        <h3 className="font-medium text-md dark:text-gray-100 mt-2">
-          <Link href={`/product/${product.id}`}>{product.name}</Link>
-        </h3>
-      </div>
-    </>
-  );
-};
-
 const ProductCard = (product: Product) => {
   return (
     <>
-      <div className="hover:border-gray-300  rounded-md border-[1px] border-gray-200 dark:border-gray-700 dark:bg-gray-800  bg-white hover:shadow-md ">
+      <div className="hover:border-gray-300 hover:shadow-sm bg-white rounded-md border-[1px] border-gray-200 dark:border-gray-700 dark:bg-gray-800  ">
         <div className="border-b-[1px] border-gray-200 dark:border-gray-700 h-52 md:h-56 lg:h-60 overflow-hidden rounded-t-md">
           <Image
             src={product.image}
@@ -83,9 +54,6 @@ const ProductCard = (product: Product) => {
         </div>
 
         <div className="p-3 relative">
-          {/* <button className="absolute -top-4 right-2 bg-blue-500 text-white text-sm px-3 shadow-lg py-1 rounded-full hover:bg-blue-600">
-            Add to Cart
-          </button> */}
           <div className="flex justify-between items-center">
             <h3 className="font-medium sm:text-lg">
               <Link
@@ -115,7 +83,7 @@ const ProductCard = (product: Product) => {
 const Hero = () => {
   return (
     <>
-      <div className="grid lg:grid-cols-2 items-center justify-between mb-10 xl:mb-20 xl:mt-16">
+      <div className="grid lg:grid-cols-2 items-center justify-between mb-10 xl:mb-24 xl:mt-16">
         <div>
           <div>
             <div
@@ -175,9 +143,95 @@ const Categories = () => {
 const CategoryButton = ({ name }: { name: string }) => {
   return (
     <>
-      <button className="bg-gray-100 px-3 py-2 md:px-6 Md:py-4 rounded-md hover:bg-gray-100/75 border dark:bg-gray-800 dark:border-gray-700 dark:text-gray-100">
-        <p className="text-xl text-nowrap capitalize">{name}</p>
-      </button>
+      <div className="relative my-5">
+        <span className="absolute -top-2 -right-2 bg-gray-900 text-white text-xs px-2 py-1 rounded-full shadow-md dark:bg-gray-700 dark:text-gray-100">
+          234
+        </span>
+        <button className="bg-gray-100  px-3 py-2 md:px-6 Md:py-4 rounded-md hover:bg-gray-100/75 border dark:bg-gray-800 dark:border-gray-700 dark:text-gray-100">
+          <p className="text-xl text-nowrap capitalize">{name}</p>
+        </button>
+      </div>
+    </>
+  );
+};
+
+const Pagination = () => {
+  return (
+    <>
+      <ol className="flex justify-center gap-1 text-xs font-medium mt-10">
+        <li>
+          <a
+            href="#"
+            className="inline-flex size-8 items-center justify-center rounded border border-gray-100 bg-white text-gray-900 rtl:rotate-180 dark:border-gray-800 dark:bg-gray-900 dark:text-white"
+          >
+            <span className="sr-only">Prev Page</span>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-3 w-3"
+              viewBox="0 0 20 20"
+              fill="currentColor"
+            >
+              <path
+                fillRule="evenodd"
+                d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z"
+                clipRule="evenodd"
+              />
+            </svg>
+          </a>
+        </li>
+
+        <li>
+          <a
+            href="#"
+            className="block size-8 rounded border border-gray-100 bg-white text-center leading-8 text-gray-900 dark:border-gray-800 dark:bg-gray-900 dark:text-white"
+          >
+            1
+          </a>
+        </li>
+
+        <li className="block size-8 rounded border-gray-900 dark:bg-gray-700 bg-gray-900 text-center leading-8 text-white dark:text-white">
+          2
+        </li>
+
+        <li>
+          <a
+            href="#"
+            className="block size-8 rounded border border-gray-100 bg-white text-center leading-8 text-gray-900 dark:border-gray-800 dark:bg-gray-900 dark:text-white"
+          >
+            3
+          </a>
+        </li>
+
+        <li>
+          <a
+            href="#"
+            className="block size-8 rounded border border-gray-100 bg-white text-center leading-8 text-gray-900 dark:border-gray-800 dark:bg-gray-900 dark:text-white"
+          >
+            4
+          </a>
+        </li>
+
+        <li>
+          <a
+            href="#"
+            className="inline-flex size-8 items-center justify-center rounded border border-gray-100 bg-white text-gray-900 rtl:rotate-180 dark:border-gray-800 dark:bg-gray-900 dark:text-white"
+          >
+            <span className="sr-only">Next Page</span>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-3 w-3"
+              viewBox="0 0 20 20"
+              fill="currentColor"
+            >
+              <path
+                fillRule="evenodd"
+                d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                clipRule="evenodd"
+              />
+            </svg>
+          </a>
+        </li>
+      </ol>
     </>
   );
 };

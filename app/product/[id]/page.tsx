@@ -98,9 +98,14 @@ export default function ProductDetails({ params }: { params: { id: string } }) {
             }
           </div>
           <div className="flex items-center gap-4">
-            <p className="font-bold text-4xl dark:text-gray-100">৳{product.price}</p>
+            <p className="font-bold text-4xl dark:text-gray-100">
+              ৳{product.price}
+            </p>
             <div>
-              <p className="font-medium dark:text-gray-100"> Save {product.discount}%</p>
+              <p className="font-medium dark:text-gray-100">
+                {" "}
+                Save {product.discount}%
+              </p>
               <p className="text-gray-400">Inclusive of all Taxes.</p>
             </div>
           </div>
@@ -131,12 +136,16 @@ export default function ProductDetails({ params }: { params: { id: string } }) {
         <div className="grid grid-cols-3 gap-8">
           <div className="col-span-3 lg:col-span-1  rounded-md p-6 md:p-8 border h-fit dark:border-gray-700">
             <div className="flex justify-center items-center flex-col mb-8">
-              <h1 className="text-2xl font-semibold mb-4 dark:text-gray-100">Customer Reviews </h1>
+              <h1 className="text-2xl font-semibold mb-4 dark:text-gray-100">
+                Customer Reviews{" "}
+              </h1>
               <div className="flex gap-3 bg-gray-50 py-3 px-3 border-[1px] rounded-md mb-2 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-100">
                 <StarRating rating={4.5} />
                 <p className="text-sm">4.5 out of 5</p>
               </div>
-              <p className="text-gray-500 dark:text-gray-400">30 customer ratings</p>
+              <p className="text-gray-500 dark:text-gray-400">
+                30 customer ratings
+              </p>
             </div>
             <div className="flex flex-col gap-3">
               <RatingLine rating={80} type={1} />
@@ -149,8 +158,12 @@ export default function ProductDetails({ params }: { params: { id: string } }) {
           <div className="col-span-3 lg:col-span-2 ">
             <div className="border rounded-md mb-8 p-6 md:p-8 dark:border-gray-700">
               <div className="mb-6">
-                <h1 className="text-xl font-semibold mb-4 dark:text-gray-100">Write a Review </h1>
-                <p className="dark:text-gray-100">Click on a star to rate it!</p>
+                <h1 className="text-xl font-semibold mb-4 dark:text-gray-100">
+                  Write a Review{" "}
+                </h1>
+                <p className="dark:text-gray-100">
+                  Click on a star to rate it!
+                </p>
                 <StarRating rating={4} />
               </div>
               <div>
@@ -242,7 +255,7 @@ const Review = () => {
                 <HandThumbUpIcon className="h-5 w-5 text-gray-500 inline-block mb-1" />{" "}
                 45
               </div>
-              <button className="px-3 py-1 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-full transition ease-in-out duration-300">
+              <button className="px-3 py-1 bg-gray-100 hover:bg-gray-100/75 dark:hover:bg-gray-700 rounded-full transition ease-in-out duration-300">
                 Reply
               </button>
             </div>
